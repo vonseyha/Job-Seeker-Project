@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".grid_viewitemhome"></activity>
+        <activity android:name=".activity_viewcvhome" />
+        <activity android:name=".activity_viewtype_cv" />
+        <activity android:name=".activity_viewtype_job" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
