@@ -1,9 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".grid_viewitemhome">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/box_menu_list_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            android:src="@drawable/rectangleh"/>
+        <LinearLayout
+            android:id="@+id/nav_iconjoblist_view"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/button_back_in_home_list_job"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_back"/>
+            <ImageView
+                android:id="@+id/button_search_in_home_list_job"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:src="@drawable/search_icon"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/nav_title_joblist_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nav_iconjoblist_view"
+            android:text="Job Seekers"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:textSize="30sp"
+            android:textColor="#ffff"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_below="@+id/nav_title_joblist_view"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/rectanglea"
+                android:layout_width="120dp"
+                android:layout_height="40dp" />
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/rectanglea"
+                android:layout_width="120dp"
+                android:layout_height="40dp" />
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/rectanglea"
+                android:layout_width="120dp"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/nav_title_joblist_view"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+           <TextView
+               android:id="@+id/menu_employer_in_home_list_job"
+               android:layout_marginLeft="23dp"
+               android:layout_marginTop="17dp"
+               android:text="Employers"
+               android:textColor="#3E0765"
+               android:textAllCaps="true"
+               android:textSize="17sp"
+               android:layout_width="120dp"
+               android:layout_height="40dp" />
+            <TextView
+                android:id="@+id/menu_job_seeker_in_home_list_job"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="17dp"
+                android:text="job wanted"
+                android:textColor="#3E0765"
+                android:textAllCaps="true"
+                android:textSize="17sp"
+                android:layout_width="120dp"
+                android:layout_height="40dp" />
+            <TextView
+                android:id="@+id/menu_seeker_in_home_list_job"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="17dp"
+                android:text="seekers"
+                android:textColor="#3E0765"
+                android:textAllCaps="true"
+                android:textSize="17sp"
+                android:layout_width="120dp"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="5dp"
+        android:id="@+id/recyclerview_type_home"
+        android:layout_width="match_parent"
+        android:layout_height="540dp">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/tab_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffff"
+        app:menu="@menu/nav_bottom_items">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+</LinearLayout>

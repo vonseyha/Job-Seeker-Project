@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_type_of_cv"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <ImageView
+                android:id="@+id/icon_type_cv"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/background_icon_cv"/>
+            <TextView
+                android:id="@+id/title_type_of_cv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="MObile Developer"
+                android:layout_below="@+id/icon_type_cv"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#008ae6"
+                />
+            
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

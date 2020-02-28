@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/profileicon"
+        android:title="PROFILE"
+        />
+    <item
+        android:id="@+id/nav_job"
+        android:icon="@drawable/job_icon"
+        android:title="JOB"
+        />
+    <item
+        android:id="@+id/nav_home"
+        android:title="HOME"
+        android:icon="@drawable/home_icon"
+        />
+    <item
+        android:id="@+id/nav_cv"
+        android:icon="@drawable/cvc_icon"
+        android:title="CV"
+        />
 
 </menu>
