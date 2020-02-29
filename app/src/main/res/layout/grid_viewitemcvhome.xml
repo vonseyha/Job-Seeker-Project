@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
+    android:padding="5dp"
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_cv_home"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         app:cardCornerRadius="5dp"
         android:layout_width="180dp"
-        android:layout_height="250dp">
+        android:layout_height="240dp">
 
         <RelativeLayout
             android:id="@+id/box_cv_home"
             android:layout_width="match_parent"
+            android:background="@drawable/circle_box_cv_home"
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/profile_cv_post"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="14dp"
                 android:src="@drawable/sekker_profile_icon"
                 android:background="@drawable/demo_circle_profile"
                 android:layout_width="60dp"
@@ -72,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="seyhavon@gmail.com"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:layout_marginLeft="5dp"
                 android:paddingTop="3dp"
                 />
@@ -82,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0969840040"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:layout_marginLeft="5dp"
                 android:paddingTop="3dp"
                 />
@@ -96,14 +99,15 @@
                 android:layout_height="30dp"
                 android:src="@drawable/rectanglee"/>
             <TextView
+                android:id="@+id/view_cv"
                 android:layout_below="@+id/password_cv_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="View Cv"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="#ffff"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="50dp"/>
+                android:layout_marginTop="17dp"
+                android:layout_marginLeft="53dp"/>
 
         </RelativeLayout>
 

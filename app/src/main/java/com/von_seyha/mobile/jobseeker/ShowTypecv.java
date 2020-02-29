@@ -11,17 +11,18 @@ import com.von_seyha.mobile.jobseeker.model.ViewTypeCvHomeModel;
 
 import java.util.ArrayList;
 
-public class activity_viewcvhome extends AppCompatActivity {
+public class ShowTypecv extends AppCompatActivity {
 
     RecyclerView recyclerView_type_cv_home;
     ViewTypeCvHomeAdapter adapter_type_cv_home;
     ArrayList<ViewTypeCvHomeModel> listCvHomeModel;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viewcvhome);
-        recyclerView_type_cv_home = findViewById(R.id.recyclerview_type_cv_home);
+        setContentView(R.layout.activity_show_typecv);
+        recyclerView_type_cv_home = findViewById(R.id.recyclerview_show_typecv);
         listCvHomeModel = new ArrayList<>();
 
         String[][] Info = {
@@ -35,7 +36,7 @@ public class activity_viewcvhome extends AppCompatActivity {
 
         int[] Image = {
                 R.drawable.circle_profileb,
-                R.drawable.circle_profilea,
+                R.drawable.circle_profileg,
                 R.drawable.circle_profilec,
                 R.drawable.circle_profiled,
                 R.drawable.circle_profilee,

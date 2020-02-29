@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".grid_viewitemhome"></activity>
+        <activity android:name=".ShowTypeJob"></activity>
+        <activity android:name=".ShowTypecv" />
+        <activity android:name=".grid_viewitemhome" />
         <activity android:name=".activity_viewcvhome" />
         <activity android:name=".activity_viewtype_cv" />
         <activity android:name=".activity_viewtype_job" />
