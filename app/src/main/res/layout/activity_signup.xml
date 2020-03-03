@@ -86,7 +86,7 @@
             android:layout_marginTop="10dp"
             android:inputType="textPassword"
             android:background="@drawable/rectanglelogin"
-            android:drawableLeft="@drawable/password_icon"
+            android:drawableLeft="@drawable/location"
             />
             
         <RadioGroup

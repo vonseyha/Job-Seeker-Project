@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EmpoyerPost">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EMPLOYER"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="#3E0765"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/employer_post_login"
+            android:layout_width="198dp"
+            android:layout_height="50dp"
+            android:background="#58CCB1"
+            android:text="Login"
+            android:textColor="#ffff"
+            android:textSize="25sp"/>
+
+        <Button
+            android:id="@+id/employer_post_signup"
+            android:layout_width="198dp"
+            android:layout_height="50dp"
+            android:background="#58CCB1"
+            android:text="Signup"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffff"
+            android:textSize="25sp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/employer_Post"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:background="#58CCB1"
+        android:layout_marginTop="5dp"
+        android:text="post"
+        android:layout_marginLeft="5dp"
+        android:textColor="#ffff"
+        android:textSize="25sp"/>
+
+</LinearLayout>
