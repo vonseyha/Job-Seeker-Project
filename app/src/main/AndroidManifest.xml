@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PostCv"></activity>
+        <activity android:name=".EditProfileSeeker"></activity>
+        <activity android:name=".EditProfileEmployer" />
+        <activity android:name=".SeekerProfile" />
+        <activity android:name=".EmployerProfile" />
+        <activity android:name=".EditCv" />
+        <activity android:name=".EditJob" />
+        <activity android:name=".PostCv" />
         <activity android:name=".PostJob" />
         <activity android:name=".Login" />
         <activity android:name=".Signup" />
