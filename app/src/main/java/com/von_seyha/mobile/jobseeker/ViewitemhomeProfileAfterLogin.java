@@ -1,27 +1,25 @@
 package com.von_seyha.mobile.jobseeker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeHomeAdapter;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeHomeModel;
 
 import java.util.ArrayList;
 
-public class grid_viewitemhome extends AppCompatActivity {
+public class ViewitemhomeProfileAfterLogin extends AppCompatActivity  {
 
     RecyclerView recyclerView_type_home;
     ViewTypeHomeAdapter adapter_type_home;
@@ -33,14 +31,14 @@ public class grid_viewitemhome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_viewitemhome);
+
         recyclerView_type_home = findViewById(R.id.recyclerview_type_home);
         Employer_function = findViewById(R.id.employer_function);
         Seeker_function = findViewById(R.id.seeker_function);
         job_want = findViewById(R.id.go_jobwant);
         postjob = findViewById(R.id.btn_postjob);
+
         bottomNavigationView = findViewById(R.id.tab_button);
-
-
 
         list_type_home_Model = new ArrayList<>();
 
@@ -104,14 +102,15 @@ public class grid_viewitemhome extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-//                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
-//                        overridePendingTransition(0,0);
+                       startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
+                        overridePendingTransition(0,0);
                         return  true;
 
                     case R.id.nav_job:
@@ -136,7 +135,6 @@ public class grid_viewitemhome extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
+
 }

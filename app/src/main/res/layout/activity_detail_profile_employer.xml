@@ -25,7 +25,7 @@
             android:layout_width="310dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="EDIT PROFILE"
+            android:text="PROFILE"
             android:layout_marginTop="10dp"
             android:textSize="25sp"
             android:layout_marginRight="20dp"
@@ -91,7 +91,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="450dp">
+        android:layout_height="460dp">
             <TextView
                 android:id="@+id/acc_info_company"
                 android:layout_marginTop="40dp"

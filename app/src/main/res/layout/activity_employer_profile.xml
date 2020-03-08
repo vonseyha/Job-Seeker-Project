@@ -56,20 +56,6 @@ tools:context=".EmployerProfile">
             android:layout_marginTop="10dp"
             android:layout_marginLeft="145dp"
             />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/cicrlea"
-            android:layout_marginTop="77dp"
-            android:layout_marginLeft="225dp"
-            />
-        <Button
-            android:id="@+id/take_photo_profile_employer"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/camara"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="230dp"/>
         <TextView
             android:id="@+id/name_employer_profile"
             android:layout_width="match_parent"
@@ -96,7 +82,7 @@ tools:context=".EmployerProfile">
         android:layout_marginTop="5dp"
         android:id="@+id/recyclerview_employer_profile"
         android:layout_width="match_parent"
-        android:layout_height="450dp">
+        android:layout_height="460dp">
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

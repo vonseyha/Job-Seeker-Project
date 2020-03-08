@@ -91,7 +91,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="450dp">
+        android:layout_height="470dp">
         <TextView
             android:id="@+id/acc_info_personal"
             android:layout_marginTop="40dp"
@@ -242,8 +242,6 @@
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
-
 
         </RelativeLayout>
 

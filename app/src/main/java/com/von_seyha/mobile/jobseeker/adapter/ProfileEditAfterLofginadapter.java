@@ -16,12 +16,12 @@ import com.von_seyha.mobile.jobseeker.model.ViewTypeHomeModel;
 
 import java.util.ArrayList;
 
-public class ViewTypeHomeAdapter extends RecyclerView.Adapter<ViewTypeHomeHolder> {
+public class ProfileEditAfterLofginadapter extends RecyclerView.Adapter<ViewTypeHomeHolder> {
 
     Context context;
     ArrayList<ViewTypeHomeModel> list_Home_Model;
 
-    public ViewTypeHomeAdapter(Context context, ArrayList<ViewTypeHomeModel> list_Home_Model) {
+    public ProfileEditAfterLofginadapter(Context context, ArrayList<ViewTypeHomeModel> list_Home_Model) {
         this.context = context;
         this.list_Home_Model = list_Home_Model;
     }
@@ -29,7 +29,7 @@ public class ViewTypeHomeAdapter extends RecyclerView.Adapter<ViewTypeHomeHolder
     @NonNull
     @Override
     public ViewTypeHomeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_viewitemhome , null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_view_edit_job_profile , null);
         return new ViewTypeHomeHolder(view);
     }
 

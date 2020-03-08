@@ -136,7 +136,7 @@
 
 
     <Button
-        android:id="@+id/uploade_post_cv"
+        android:id="@+id/uploade_pdf_post_cv"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:layout_width="200dp"

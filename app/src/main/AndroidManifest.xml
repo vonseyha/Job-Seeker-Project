@@ -30,6 +30,9 @@
         <activity android:name=".activity_viewcvhome" />
         <activity android:name=".activity_viewtype_cv" />
         <activity android:name=".activity_viewtype_job" />
+        <activity android:name=".EmployerProfile_Afterlogin"/>
+        <activity android:name=".SeekerProfile_AfterLofgin"/>
+        <activity android:name=".ViewitemhomeProfileAfterLogin"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

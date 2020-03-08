@@ -34,6 +34,7 @@ public class ViewTypeCvAdapter extends RecyclerView.Adapter<ViewTypeCvHolder> {
     public void onBindViewHolder(@NonNull ViewTypeCvHolder holder, int position) {
         holder.imageView.setImageResource(listType_cv_model.get(position).getImage());
         holder.textView.setText(listType_cv_model.get(position).getTitle());
+
     }
 
     @Override
