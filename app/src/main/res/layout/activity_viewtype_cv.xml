@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_viewtype_cv">
+    tools:context=".activity_viewtype_cv"
+    android:background="#f5f5f0">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,7 +17,7 @@
             <ImageView
                 android:id="@+id/background_type_of_cv"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="185dp"
                 android:src="@drawable/cva_background" />
 
             <ImageView
@@ -38,7 +39,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_type_of_cv"
             android:layout_width="match_parent"
-            android:layout_height="330dp">
+            android:layout_height="460dp">
         </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -7,11 +8,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_type_of_job"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        app:cardCornerRadius="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp">
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,8 +23,8 @@
                 android:id="@+id/icon_type_job"
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="12dp"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:src="@drawable/mobile_background_icon"/>
             <TextView
                 android:id="@+id/title_type_of_job"
@@ -31,7 +33,7 @@
                 android:textAlignment="center"
                 android:text="MObile Developer"
                 android:layout_below="@+id/icon_type_job"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#008ae6"
                 />
