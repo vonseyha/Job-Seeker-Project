@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeHomeAdapter;
@@ -15,21 +17,38 @@ import com.von_seyha.mobile.jobseeker.model.ViewTypeHomeModel;
 
 import java.util.ArrayList;
 
-public class ShowTypeJob extends AppCompatActivity {
+public class EmployerProfile extends AppCompatActivity {
 
     RecyclerView recyclerView_type_home;
     ViewTypeHomeAdapter adapter_type_home;
     ArrayList<ViewTypeHomeModel> list_type_home_Model;
 
+    Button btn_back , btn_profileEmployer;
     BottomNavigationView bottomNavigationView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_type_job);
-        recyclerView_type_home = findViewById(R.id.recyclerview_show_typejob);
+        setContentView(R.layout.activity_employer_profile);
+        btn_back = findViewById(R.id.btn_back_profile_employer);
+        btn_profileEmployer = findViewById(R.id.btn_CLK_profile_employer);
+        recyclerView_type_home = findViewById(R.id.recyclerview_employer_profile);
         bottomNavigationView = findViewById(R.id.tab_button);
 
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),DetailJobPost.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_profileEmployer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),DetailProfileEmployer.class);
+                startActivity(intent);
+            }
+        });
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -74,12 +93,11 @@ public class ShowTypeJob extends AppCompatActivity {
         };
 
         int [] Image = {
-                R.drawable.background_image_job,
-                R.drawable.background_image_job,
-                R.drawable.background_image_job,
-                R.drawable.background_image_job,
-                R.drawable.background_image_job,
-
+                R.drawable.choosed,
+                R.drawable.chooseg,
+                R.drawable.chooseh,
+                R.drawable.choosej,
+                R.drawable.choosef,
         };
 
         for (int i = 0 ; i < 5 ; i++ ){
@@ -96,6 +114,5 @@ public class ShowTypeJob extends AppCompatActivity {
         recyclerView_type_home.setLayoutManager(new GridLayoutManager(this,1));
         adapter_type_home = new ViewTypeHomeAdapter(this,list_type_home_Model);
         recyclerView_type_home.setAdapter(adapter_type_home);
-
     }
 }

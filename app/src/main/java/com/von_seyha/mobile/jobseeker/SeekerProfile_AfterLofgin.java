@@ -1,60 +1,58 @@
 package com.von_seyha.mobile.jobseeker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.von_seyha.mobile.jobseeker.adapter.ProfileEditAfterloginadapter;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeCvHomeAdapter;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeCvHomeModel;
 
 import java.util.ArrayList;
 
-public class activity_viewcvhome extends AppCompatActivity {
+public class SeekerProfile_AfterLofgin extends AppCompatActivity {
+    RecyclerView recyclerView;
+    ProfileEditAfterloginadapter adapter;
+    ArrayList<ViewTypeCvHomeModel> listCV_Model;
 
-    RecyclerView recyclerView_type_cv_home;
-    ViewTypeCvHomeAdapter adapter_type_cv_home;
-    ArrayList<ViewTypeCvHomeModel> listCvHomeModel;
-
-    ImageView btn_back , PostCv;
+    Button btn_back , btn_clk_profile;
     BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viewcvhome);
-
-        recyclerView_type_cv_home = findViewById(R.id.recyclerview_type_cv_home);
-        btn_back = findViewById(R.id.button_back_in_home_list_cv);
-        PostCv = findViewById(R.id.btn_postcv);
+        setContentView(R.layout.activity_seeker_profile);
+        recyclerView = findViewById(R.id.recyclerview_seeker_profile);
+        btn_back = findViewById(R.id.btn_back_profile_seeker);
+        btn_clk_profile = findViewById(R.id.btn_CLK_profile_seeker);
         bottomNavigationView = findViewById(R.id.tab_button);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),grid_viewitemhome.class);
+                Intent intent = new Intent(getApplicationContext(),activity_viewcvhome.class);
                 startActivity(intent);
             }
         });
-        PostCv.setOnClickListener(new View.OnClickListener() {
+        btn_clk_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PostCv.class);
+                Intent intent = new Intent(getApplicationContext(),DetailProfileSeeker.class);
                 startActivity(intent);
             }
         });
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 switch (item.getItemId()){
                     case R.id.nav_profile:
 //                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
@@ -84,7 +82,9 @@ public class activity_viewcvhome extends AppCompatActivity {
             }
         });
 
-        listCvHomeModel = new ArrayList<>();
+
+        listCV_Model = new ArrayList<>();
+
         String[][] Info = {
                 {"Von Seyha", "Korn Sanit", "Try Chanty", "Soy Sin", "Meng Visal","Tang Eamseng","Seb Bunly","Poth Vothha"},
                 {"Post: 10/12/2020","Post: 01/03/2020","Post: 11/02/2020","Post: 15/06/2020","Post: 10/12/2020","Post: 01/03/2020","Post: 11/02/2020","Post: 15/06/2020"},
@@ -116,12 +116,12 @@ public class activity_viewcvhome extends AppCompatActivity {
             model.setExperience_cv_home(Info[3][i]);
             model.setEmail_cv_home(Info[4][i]);
             model.setPassword_cv_home(Info[5][i]);
-            model.setView_cv("View CV");
-            listCvHomeModel.add(model);
+            model.setView_cv("EDIT");
+            listCV_Model.add(model);
         }
 
-        recyclerView_type_cv_home.setLayoutManager(new GridLayoutManager(this,2));
-        adapter_type_cv_home = new ViewTypeCvHomeAdapter(this ,listCvHomeModel );
-        recyclerView_type_cv_home.setAdapter(adapter_type_cv_home);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        adapter = new ProfileEditAfterloginadapter(this ,listCV_Model );
+        recyclerView.setAdapter(adapter);
     }
 }

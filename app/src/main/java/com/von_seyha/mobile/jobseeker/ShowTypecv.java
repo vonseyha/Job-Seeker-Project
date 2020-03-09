@@ -1,11 +1,15 @@
 package com.von_seyha.mobile.jobseeker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeCvHomeAdapter;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeCvHomeModel;
 
@@ -17,12 +21,49 @@ public class ShowTypecv extends AppCompatActivity {
     ViewTypeCvHomeAdapter adapter_type_cv_home;
     ArrayList<ViewTypeCvHomeModel> listCvHomeModel;
 
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_typecv);
         recyclerView_type_cv_home = findViewById(R.id.recyclerview_show_typecv);
+        bottomNavigationView = findViewById(R.id.tab_button);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+                    case R.id.nav_profile:
+//                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
+//                        overridePendingTransition(0,0);
+                        return  true;
+
+                    case R.id.nav_job:
+                        Intent typeJob = new Intent(getApplicationContext(),activity_viewtype_job.class);
+                        startActivity(typeJob);
+                        overridePendingTransition(0,0);
+                        return  true;
+
+                    case R.id.nav_home:
+                        Intent typeCv = new Intent(getApplicationContext(),grid_viewitemhome.class);
+                        startActivity(typeCv);
+                        overridePendingTransition(0,0);
+                        return  true;
+
+                    case R.id.nav_cv:
+                        Intent intent3 = new Intent(getApplicationContext(),activity_viewtype_cv.class);
+                        startActivity(intent3);
+                        overridePendingTransition(0,0);
+                        return  true;
+                }
+
+                return false;
+            }
+        });
+
+
         listCvHomeModel = new ArrayList<>();
 
         String[][] Info = {

@@ -2,34 +2,35 @@ package com.von_seyha.mobile.jobseeker;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.von_seyha.mobile.jobseeker.adapter.ViewTypeJobAdapter;
-import com.von_seyha.mobile.jobseeker.model.ViewTypeJobModel;
 
-import java.util.ArrayList;
-
-public class activity_viewtype_job extends AppCompatActivity {
-
-    RecyclerView recyclerView_type_job;
-    ViewTypeJobAdapter adapter_type_job;
-    ArrayList<ViewTypeJobModel> list_type_job_Model;
+public class DetailProfileEmployer extends AppCompatActivity {
 
 
+    Button btn_back;
     BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viewtype_job);
-        recyclerView_type_job = findViewById(R.id.recyclerview_type_of_job);
+        setContentView(R.layout.activity_detail_profile_employer);
+        btn_back = findViewById(R.id.btn_back_detail_profile_employer);
         bottomNavigationView = findViewById(R.id.tab_button);
 
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),EmployerProfile.class);
+                startActivity(intent);
+            }
+        });
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -63,41 +64,5 @@ public class activity_viewtype_job extends AppCompatActivity {
             }
         });
 
-
-        list_type_job_Model = new ArrayList<>();
-
-        String[] Title = {
-                "Mobile Developer",
-                "Web Developer",
-                "Accounting",
-                "Digital Markating",
-                "Teacher",
-                "Project Management",
-                "Designer",
-                "Conteent Writing"
-        };
-
-        int [] Image = {
-                R.drawable.mobile_background_icon,
-                R.drawable.test_choicesa,
-                R.drawable.web_choice_icon,
-                R.drawable.test_choice,
-                R.drawable.degital_marketing_choice,
-                R.drawable.accounting_chioce,
-                R.drawable.test_choicesa,
-                R.drawable.test_choice
-
-        };
-
-        for (int i = 0 ; i < 8 ; i++ ){
-            ViewTypeJobModel model = new ViewTypeJobModel();
-            model.setImage_job(Image[i]);
-            model.setTitle_job(Title[i]);
-            list_type_job_Model.add(model);
-        }
-
-        recyclerView_type_job.setLayoutManager(new GridLayoutManager(this,2));
-        adapter_type_job = new ViewTypeJobAdapter(this,list_type_job_Model);
-        recyclerView_type_job.setAdapter(adapter_type_job);
     }
 }

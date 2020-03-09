@@ -9,7 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PostCv"></activity>
+        <activity android:name=".DetailJobPost"></activity>
+        <activity android:name=".SeekerPost" />
+        <activity android:name=".EmpoyerPost" />
+        <activity android:name=".DetailProfileSeeker" />
+        <activity android:name=".DetailProfileEmployer" />
+        <activity android:name=".EditProfileSeeker" />
+        <activity android:name=".EditProfileEmployer" />
+        <activity android:name=".SeekerProfile" />
+        <activity android:name=".EmployerProfile" />
+        <activity android:name=".EditCv" />
+        <activity android:name=".EditJob" />
+        <activity android:name=".PostCv" />
         <activity android:name=".PostJob" />
         <activity android:name=".Login" />
         <activity android:name=".Signup" />
@@ -19,6 +30,9 @@
         <activity android:name=".activity_viewcvhome" />
         <activity android:name=".activity_viewtype_cv" />
         <activity android:name=".activity_viewtype_job" />
+        <activity android:name=".EmployerProfile_Afterlogin"/>
+        <activity android:name=".SeekerProfile_AfterLofgin"/>
+        <activity android:name=".ViewitemhomeProfileAfterLogin"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

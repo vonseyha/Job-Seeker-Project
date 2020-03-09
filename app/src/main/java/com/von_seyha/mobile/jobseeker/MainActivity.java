@@ -18,7 +18,6 @@ import com.von_seyha.mobile.jobseeker.model.ViewTypeJobModel;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PostJob.class);
+                Intent intent = new Intent(getApplicationContext(), grid_viewitemhome.class);
                 startActivity(intent);
             }
         });

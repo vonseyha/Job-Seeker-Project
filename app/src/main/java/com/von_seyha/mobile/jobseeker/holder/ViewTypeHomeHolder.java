@@ -12,7 +12,7 @@ import com.von_seyha.mobile.jobseeker.R;
 public class ViewTypeHomeHolder extends RecyclerView.ViewHolder {
 
     public ImageView image_background , image_button_show;
-    public TextView Title , Term , Email , Password , show_more;
+    public TextView Title , Term , Email , Password , show_more , clk_post;
 
     public ViewTypeHomeHolder(@NonNull View itemView) {
         super(itemView);
@@ -23,5 +23,6 @@ public class ViewTypeHomeHolder extends RecyclerView.ViewHolder {
         this.Email = itemView.findViewById(R.id.job_email);
         this.Password = itemView.findViewById(R.id.job_phone);
         this.show_more = itemView.findViewById(R.id.txt_job_show_more);
+        this.clk_post = itemView.findViewById(R.id.btn_post_job );
     }
 }

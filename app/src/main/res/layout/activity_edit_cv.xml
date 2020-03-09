@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp">
 
         <Button
-            android:id="@+id/btn_back_post_cv"
+            android:id="@+id/btn_back_edit_post_cv"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_width="25dp"
@@ -23,11 +23,11 @@
             android:background="@drawable/icon_back"
             />
         <TextView
-            android:id="@+id/btn_post_cv"
+            android:id="@+id/btn_edit_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="textEnd"
-            android:text="POST"
+            android:text="CORRECT"
             android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:layout_marginRight="20dp"
@@ -37,7 +37,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image_post_cv"
+        android:id="@+id/profile_image_edit_post_cv"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:civ_border_color="@color/colorAccent"
@@ -46,7 +46,7 @@
         android:src="@drawable/circle_profileg"/>
 
     <TextView
-        android:id="@+id/uploade_photo_post_cv"
+        android:id="@+id/uploade_photo_edit_post_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Uploade Photo"
@@ -63,7 +63,7 @@
         android:layout_marginRight="30dp"
         android:hint="Name">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/name_post_cv"
+            android:id="@+id/name_edit_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
@@ -76,7 +76,7 @@
         android:layout_marginRight="30dp"
         android:hint="Email">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_post_cv"
+            android:id="@+id/email_edit_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
@@ -89,7 +89,7 @@
         android:layout_marginRight="30dp"
         android:hint="Interest">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/interest_post_cv"
+            android:id="@+id/interest_edit_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
@@ -102,7 +102,7 @@
         android:layout_marginRight="30dp"
         android:hint="Experience">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/experience_post_cv"
+            android:id="@+id/experience_edit_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
@@ -115,7 +115,7 @@
         android:layout_marginRight="30dp"
         android:hint="Language">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/language_post_cv"
+            android:id="@+id/language_edit_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
@@ -128,7 +128,7 @@
         android:layout_marginRight="30dp"
         android:hint="Last Update">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lastupdate_post_cv"
+            android:id="@+id/lastupdate_edit_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
@@ -136,7 +136,7 @@
 
 
     <Button
-        android:id="@+id/uploade_pdf_post_cv"
+        android:id="@+id/uploade__edit_post_cv"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:layout_width="200dp"

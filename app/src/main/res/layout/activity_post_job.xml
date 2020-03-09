@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp">
 
         <Button
-            android:id="@+id/btn_back_signup"
+            android:id="@+id/btn_back_post_job"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_width="25dp"
