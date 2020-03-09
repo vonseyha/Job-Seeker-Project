@@ -32,6 +32,7 @@ public class DetailJobPost extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
