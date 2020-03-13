@@ -15,7 +15,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class DetailJobPost extends AppCompatActivity {
 
     ImageView btn_back,btn_Setting;
-
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,38 +32,38 @@ public class DetailJobPost extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.getItemId()){
-                    case R.id.nav_profile:
-//                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
+//                switch (item.getItemId()){
+//                    case R.id.nav_profile:
+////                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
+////                        overridePendingTransition(0,0);
+//                        return  true;
+//
+//                    case R.id.nav_job:
+//                        Intent typeJob = new Intent(getApplicationContext(),activity_viewtype_job.class);
+//                        startActivity(typeJob);
 //                        overridePendingTransition(0,0);
-                        return  true;
-
-                    case R.id.nav_job:
-                        Intent typeJob = new Intent(getApplicationContext(),activity_viewtype_job.class);
-                        startActivity(typeJob);
-                        overridePendingTransition(0,0);
-                        return  true;
-
-                    case R.id.nav_home:
-                        Intent typeCv = new Intent(getApplicationContext(),grid_viewitemhome.class);
-                        startActivity(typeCv);
-                        overridePendingTransition(0,0);
-                        return  true;
-
-                    case R.id.nav_cv:
-                        Intent intent3 = new Intent(getApplicationContext(),activity_viewtype_cv.class);
-                        startActivity(intent3);
-                        overridePendingTransition(0,0);
-                        return  true;
-                }
-
-                return false;
-            }
-        });
+//                        return  true;
+//
+//                    case R.id.nav_home:
+//                        Intent typeCv = new Intent(getApplicationContext(),grid_viewitemhome.class);
+//                        startActivity(typeCv);
+//                        overridePendingTransition(0,0);
+//                        return  true;
+//
+//                    case R.id.nav_cv:
+//                        Intent intent3 = new Intent(getApplicationContext(),activity_viewtype_cv.class);
+//                        startActivity(intent3);
+//                        overridePendingTransition(0,0);
+//                        return  true;
+//                }
+//
+//                return false;
+//            }
+//        });
 
 
         btn_Setting.setOnClickListener(new View.OnClickListener() {

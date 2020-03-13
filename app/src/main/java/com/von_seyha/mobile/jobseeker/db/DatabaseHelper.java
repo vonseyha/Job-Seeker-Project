@@ -27,6 +27,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteStatement sqLiteStatement = getReadableDatabase().compileStatement(sql);
         long l = sqLiteStatement.simpleQueryForLong();
         sqLiteStatement.close();
+        if ( l == 1){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public boolean isLoginValidSignup(String username , String email , String password , String address){
+        String sql1 = " SELECT COUNT(*) FROM user WHERE username='" + username + "' AND email='"+ email + "' AND password='" + password + "' AND address='" + address + "'";
+        SQLiteStatement sqLiteStatement = getReadableDatabase().compileStatement(sql1);
+        long l = sqLiteStatement.simpleQueryForLong();
+        sqLiteStatement.close();
 
         if ( l == 1){
             return true;
