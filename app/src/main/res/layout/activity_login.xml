@@ -70,7 +70,8 @@
             android:textAlignment="textEnd"
             android:textSize="15sp"
             android:layout_marginTop="10dp"
-            android:text="forgot password?"/>
+            android:text="forgot password?"
+            android:gravity="end" />
 
         <Button
                 android:id="@+id/btn_login"
