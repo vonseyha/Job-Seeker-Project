@@ -19,7 +19,7 @@
         <LinearLayout
             android:id="@+id/nav_iconcvlist_view"
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -31,7 +31,7 @@
                 android:src="@drawable/icon_back"/>
             <ImageView
                 android:id="@+id/button_search_in_home_list_cv"
-                android:layout_marginLeft="310dp"
+                android:layout_marginLeft="250dp"
                 android:layout_marginTop="15dp"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
@@ -122,8 +122,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="5dp"
             android:id="@+id/recyclerview_type_cv_home"
-            android:layout_width="match_parent"
-            android:layout_height="590dp">
+            android:layout_width="350dp"
+            android:layout_height="500dp">
         </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
