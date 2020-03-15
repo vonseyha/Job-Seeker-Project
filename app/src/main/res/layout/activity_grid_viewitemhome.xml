@@ -15,7 +15,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="105dp"
+            android:layout_height="120dp"
             android:src="@drawable/rectangleh"/>
         <LinearLayout
             android:id="@+id/nav_iconjoblist_view"
@@ -129,17 +129,17 @@
         android:id="@+id/recyclerview_type_home"
         android:layout_width="match_parent"
         android:layout_height="410dp">
-        </androidx.recyclerview.widget.RecyclerView>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_postjob"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="200dp"
-            android:layout_margin="10dp"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_post"
-            android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_postjob"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentButtom="true"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_post"
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content" />
+        </androidx.recyclerview.widget.RecyclerView>
 
     </RelativeLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView

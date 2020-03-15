@@ -1,6 +1,7 @@
 package com.von_seyha.mobile.jobseeker.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.von_seyha.mobile.jobseeker.DetailJobPost;
 import com.von_seyha.mobile.jobseeker.R;
+import com.von_seyha.mobile.jobseeker.SeekerProfile;
 import com.von_seyha.mobile.jobseeker.holder.ViewTypeCvHomeHolder;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeCvHomeModel;
 
@@ -42,6 +45,15 @@ public class ViewTypeCvHomeAdapter extends RecyclerView.Adapter<ViewTypeCvHomeHo
         holder.email_cv_home.setText(listCVHomeModel.get(position).getEmail_cv_home());
         holder.password_cv_home.setText(listCVHomeModel.get(position).getPassword_cv_home());
         holder.view_cv.setText(listCVHomeModel.get(position).getView_cv());
+
+        holder.btn_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SeekerProfile.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
