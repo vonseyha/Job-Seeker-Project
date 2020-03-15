@@ -130,18 +130,17 @@
         android:layout_width="match_parent"
         android:layout_height="410dp">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btn_postjob"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentButtom="true"
-                android:layout_margin="10dp"
-                android:layout_width="wrap_content"
-                android:src="@drawable/ic_post"
-                android:layout_marginBottom="20dp"
-                android:layout_height="wrap_content" />
         </androidx.recyclerview.widget.RecyclerView>
 
     </RelativeLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_postjob"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_post"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/tab_button"
         android:layout_width="match_parent"
