@@ -95,7 +95,6 @@ public class activity_viewtype_job extends AppCompatActivity {
             model.setTitle_job(Title[i]);
             list_type_job_Model.add(model);
         }
-
         recyclerView_type_job.setLayoutManager(new GridLayoutManager(this,2));
         adapter_type_job = new ViewTypeJobAdapter(this,list_type_job_Model);
         recyclerView_type_job.setAdapter(adapter_type_job);

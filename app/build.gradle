@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.1"
     defaultConfig {
         applicationId "com.von_seyha.mobile.jobseeker"
-        minSdkVersion 16
+        minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -43,9 +43,7 @@ dependencies {
     //Circle profile image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    implementation 'com.github.barteksc:android-pdf-viewer:2.0.3'
-    implementation 'com.github.kk121:File-Loader:1.2'
-    implementation 'com.karumi:dexter:5.0.0'
-
-
+//    implementation 'com.github.barteksc:android-pdf-viewer:2.0.3'
+//    implementation 'com.github.kk121:File-Loader:1.2'
+//    implementation 'com.karumi:dexter:5.0.0'
 }

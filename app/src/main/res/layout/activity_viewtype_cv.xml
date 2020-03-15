@@ -6,40 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity_viewtype_cv"
-    android:background="#f5f5f0">
+    android:background="@drawable/back_type_cv">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/background_type_of_cv"
-                android:layout_width="match_parent"
-                android:layout_height="185dp"
-                android:src="@drawable/cva_background" />
+            android:layout_height="wrap_content"/>
 
-            <ImageView
-                android:layout_marginTop="150dp"
-                android:id="@+id/icon_logo"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="160dp"
-                android:src="@drawable/cicrle_logo"
-                />
-            <ImageView
-                android:layout_marginLeft="175dp"
-                android:layout_marginTop="160dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/p_image_logo"/>
-        </RelativeLayout>
-
+        <TextView
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            android:textAllCaps="true"
+            android:text="Type Of \n   cv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_type_of_cv"
             android:layout_width="match_parent"
-            android:layout_height="460dp">
+            android:layout_marginTop="40dp"
+            android:layout_height="380dp">
         </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

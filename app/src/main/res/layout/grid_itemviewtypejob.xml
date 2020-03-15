@@ -3,17 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:padding="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_type_of_job"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="110dp"
         app:cardCornerRadius="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        app:cardElevation="5dp">
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="15dp"
+        app:cardElevation="3dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,10 +22,10 @@
 
             <ImageView
                 android:id="@+id/icon_type_job"
-                android:layout_marginLeft="32dp"
+                android:layout_marginLeft="42dp"
                 android:layout_marginTop="12dp"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/mobile_background_icon"/>
             <TextView
                 android:id="@+id/title_type_of_job"
