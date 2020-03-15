@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EmployerProfile">
+    tools:context=".SeekerProfile">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -69,7 +69,7 @@
             android:id="@+id/name_edit_employer_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="niptict"
+            android:text="von seyha"
             android:textAllCaps="true"
             android:textAlignment="center"
             android:layout_below="@+id/profile_image_edit_employer"

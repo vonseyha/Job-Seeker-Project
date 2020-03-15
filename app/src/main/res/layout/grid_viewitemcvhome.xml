@@ -94,7 +94,7 @@
                 />
 
             <ImageView
-                android:id="@+id/btn_view"
+                android:id="@+id/btn_view_cv"
                 android:layout_below="@+id/password_cv_home"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="37dp"

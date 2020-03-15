@@ -4,6 +4,34 @@ public class ViewTypeHomeModel {
     int image_background , image_button_show;
     String Title , Term , Email , Password , show_more;
 
+    //Add more
+    String requirement , experience,lastdate;
+
+    public String getRequirement() {
+        return requirement;
+    }
+
+    public void setRequirement(String requirement) {
+        this.requirement = requirement;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getLastdate() {
+        return lastdate;
+    }
+
+    public void setLastdate(String lastdate) {
+        this.lastdate = lastdate;
+    }
+
+    //Old Before Add more
     public int getImage_background() {
         return image_background;
     }

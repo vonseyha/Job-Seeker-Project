@@ -70,8 +70,7 @@
                 android:layout_below="@+id/job_phone"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/rectanglee"
-                />
+                android:src="@drawable/rectanglee" />
             <TextView
                 android:id="@+id/txt_job_show_more"
                 android:layout_width="120dp"
@@ -84,7 +83,34 @@
                 android:textColor="#ffff"
                 android:textSize="15sp"
                 />
+            <TextView
+                android:id="@+id/input_reqs"
+                android:layout_below="@+id/btn_job_show_more"
+                android:layout_toRightOf="@+id/txt_job_show_more"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="requirement"
+                android:textSize="10sp"
+                android:textColor="@color/colorAccent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/input_exps"
+                android:layout_below="@+id/btn_job_show_more"
+                android:layout_toRightOf="@+id/input_reqs"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="experience"
+                android:textSize="10sp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/input_last_dates"
+                android:layout_below="@+id/btn_job_show_more"
+                android:layout_toRightOf="@+id/input_exps"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="lastdate"
+                android:textSize="10sp"
+                android:layout_height="wrap_content" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

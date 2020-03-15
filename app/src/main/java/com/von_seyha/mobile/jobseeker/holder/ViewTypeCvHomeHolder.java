@@ -22,7 +22,7 @@ public class ViewTypeCvHomeHolder extends RecyclerView.ViewHolder {
     public ViewTypeCvHomeHolder(@NonNull View itemView) {
         super(itemView);
         this.profile_cv_post = itemView.findViewById(R.id.profile_cv_post);
-        this.btn_view = itemView.findViewById(R.id.btn_view);
+        this.btn_view = itemView.findViewById(R.id.btn_view_cv);
         this.name_cv_post = itemView.findViewById(R.id.name_cv_post);
         this.last_update_cv_post = itemView.findViewById(R.id.last_update_cv_post);
         this.function_cv_home = itemView.findViewById(R.id.function_cv_home);

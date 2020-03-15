@@ -7,16 +7,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeCvHomeAdapter;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeCvHomeModel;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -26,7 +38,7 @@ public class activity_viewcvhome extends AppCompatActivity {
     ViewTypeCvHomeAdapter adapter_type_cv_home;
     ArrayList<ViewTypeCvHomeModel> listCvHomeModel;
 
-    ImageView btn_back , PostCv;
+    ImageView btn_back , PostCv ;
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +48,7 @@ public class activity_viewcvhome extends AppCompatActivity {
         recyclerView_type_cv_home = findViewById(R.id.recyclerview_type_cv_home);
         btn_back = findViewById(R.id.button_back_in_home_list_cv);
         PostCv = findViewById(R.id.btn_postcv);
+
         bottomNavigationView = findViewById(R.id.tab_button);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +65,8 @@ public class activity_viewcvhome extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -124,4 +139,54 @@ public class activity_viewcvhome extends AppCompatActivity {
         adapter_type_cv_home = new ViewTypeCvHomeAdapter(this ,listCvHomeModel );
         recyclerView_type_cv_home.setAdapter(adapter_type_cv_home);
     }
+
+    private RequestQueue mRequestQueue;
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        jsonRequest("http://192.168.200.64:8000/api/postcv/read");
+    }
+
+    private void jsonRequest(String url)
+    {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try
+                {
+                    listCvHomeModel = new ArrayList<>();
+                    for(int i=0 ; i<response.length(); i++){
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        ViewTypeCvHomeModel model = new ViewTypeCvHomeModel();
+                        //int a = jsonObject.getInt("Icon");
+                        model.setProfile_cv_post(R.drawable.circle_profilec);
+                        model.setName_cv_post(jsonObject.getString("Fullname"));
+                        model.setLast_update_cv_post(jsonObject.getString("Lastdate"));
+                        model.setFunction_cv_home(jsonObject.getString("Interest"));
+                        model.setExperience_cv_home(jsonObject.getString("Experience"));
+                        model.setEmail_cv_home(jsonObject.getString("Email"));
+                        model.setPassword_cv_home(jsonObject.getString("Language"));
+                        model.setView_cv("View CV");
+                        model.setBtn_view(R.drawable.rectanglee);
+                        listCvHomeModel.add(model);
+                        Log.e("RESPONE DATA", model.toString());
+                    }
+                }catch (Exception e){
+                    Log.e("Error Exception",e.toString());
+                }
+                recyclerView_type_cv_home.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
+                adapter_type_cv_home = new ViewTypeCvHomeAdapter(getApplicationContext(),listCvHomeModel);
+                recyclerView_type_cv_home.setAdapter(adapter_type_cv_home);
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TESTING",error.getMessage());
+            }
+        });
+        mRequestQueue.add(request);
+    }
 }
+

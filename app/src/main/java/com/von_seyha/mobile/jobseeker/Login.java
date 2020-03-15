@@ -74,33 +74,33 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String Email = email1.getText().toString();
                 String Password = password1.getText().toString();
-//
-//                if (TextUtils.isEmpty(Email) && TextUtils.isEmpty(Password)){
-//                    Toast.makeText(getApplication(), "Please Fill Information!",Toast.LENGTH_LONG).show();
-//                }
-//                if(TextUtils.isEmpty(Email)){
-//                    Toast.makeText(getApplication(), " Email Empty ",Toast.LENGTH_LONG).show();
-//                }
-//                else if(TextUtils.isEmpty(Password)){
-//                    Toast.makeText(getApplication(), "Password Empty",Toast.LENGTH_LONG).show();
-//                }
-//                else if (databaseHelper.isLoginValid(Email,Password)){
-//                    Toast.makeText(getApplicationContext(),"Login Successful", Toast.LENGTH_LONG).show();
-////                    Intent intent = new Intent(getApplicationContext(),ViewitemhomeProfileAfterLogin.class);
-////                    startActivity(intent);
-//                    email1.setText("");
-//                    password1.setText("");
-//                }
-//                else {
-//                    Toast.makeText(getApplicationContext(),"Invalide Email and Password", LENGTH_LONG).show();
-//                }
+
+                if (TextUtils.isEmpty(Email) && TextUtils.isEmpty(Password)){
+                    Toast.makeText(getApplication(), "Please Fill Information!",Toast.LENGTH_LONG).show();
+                }
+                if(TextUtils.isEmpty(Email)){
+                    Toast.makeText(getApplication(), " Email Empty ",Toast.LENGTH_LONG).show();
+                }
+                else if(TextUtils.isEmpty(Password)){
+                    Toast.makeText(getApplication(), "Password Empty",Toast.LENGTH_LONG).show();
+                }
+                else if (databaseHelper.isLoginValid(Email,Password)){
+                    Toast.makeText(getApplicationContext(),"Login Successful", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(),ViewitemhomeProfileAfterLogin.class);
+                    startActivity(intent);
+                    email1.setText("");
+                    password1.setText("");
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"Invalide Email and Password", LENGTH_LONG).show();
+                }
                 parseJSON(Email,Password);
             }
         });
     }
 
     public String parseJSON(final String email , final String password){
-        String url = "http://172.23.0.223:8000/api/user/login/"+email+"/"+password;
+        String url = "http://192.168.200.64:8000/api/user/login/"+email+"/"+password;
         StringRequest request = new StringRequest(Request.Method.GET,url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -137,6 +137,4 @@ public class Login extends AppCompatActivity {
         requestQueue.add(request);
         return email;
     }
-
-
 }

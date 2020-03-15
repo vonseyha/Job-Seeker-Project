@@ -38,7 +38,7 @@ public class SeekerProfile extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(),activity_viewcvhome.class);
                 startActivity(intent);
             }
         });
@@ -119,7 +119,6 @@ public class SeekerProfile extends AppCompatActivity {
             model.setView_cv("View CV");
             listCV_Model.add(model);
         }
-
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         adapter = new ViewTypeCvHomeAdapter(this ,listCV_Model );
         recyclerView.setAdapter(adapter);

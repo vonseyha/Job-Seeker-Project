@@ -13,6 +13,8 @@ public class ViewTypeHomeHolder extends RecyclerView.ViewHolder {
 
     public ImageView image_background , image_button_show;
     public TextView Title , Term , Email , Password , show_more , clk_post;
+    //Addmore
+    public TextView requirement , experience,lastdate;
 
     public ViewTypeHomeHolder(@NonNull View itemView) {
         super(itemView);
@@ -24,5 +26,9 @@ public class ViewTypeHomeHolder extends RecyclerView.ViewHolder {
         this.Password = itemView.findViewById(R.id.job_phone);
         this.show_more = itemView.findViewById(R.id.txt_job_show_more);
         this.clk_post = itemView.findViewById(R.id.btn_post_job );
+        //Addmore
+        this.requirement = itemView.findViewById(R.id.input_reqs);
+        this.experience = itemView.findViewById(R.id.input_exps);
+        this.lastdate = itemView.findViewById(R.id.input_last_dates);
     }
 }

@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,11 +17,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.JsonArray;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeHomeAdapter;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeHomeModel;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+
+import static java.security.AccessController.getContext;
 
 public class grid_viewitemhome extends AppCompatActivity {
 
@@ -39,8 +55,6 @@ public class grid_viewitemhome extends AppCompatActivity {
         job_want = findViewById(R.id.go_jobwant);
         postjob = findViewById(R.id.btn_postjob);
         bottomNavigationView = findViewById(R.id.tab_button);
-
-
 
         list_type_home_Model = new ArrayList<>();
 
@@ -136,7 +150,56 @@ public class grid_viewitemhome extends AppCompatActivity {
                 return false;
             }
         });
+    }
 
+    private RequestQueue mRequestQueue;
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        jsonRequest("http://192.168.200.64:8000/api/postjob/read");
+    }
 
+    private void jsonRequest(String url)
+    {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try
+                {
+                    list_type_home_Model = new ArrayList<>();
+                    for(int i=0 ; i<response.length(); i++){
+                       JSONObject jsonObject = response.getJSONObject(i);
+                        ViewTypeHomeModel model = new ViewTypeHomeModel();
+                        //int a = jsonObject.getInt("Icon");
+                        model.setImage_background(R.drawable.choosed);
+                        model.setTitle(jsonObject.getString("Title"));
+                        model.setTerm(jsonObject.getString("Term"));
+                        model.setEmail(jsonObject.getString("Email"));
+                        model.setPassword(jsonObject.getString("Phone"));
+                        //Addmore
+                        model.setRequirement(jsonObject.getString("Requirement"));
+                        model.setExperience(jsonObject.getString("Experience"));
+                        model.setLastdate(jsonObject.getString("Lastdate"));
+                        model.setImage_button_show(R.drawable.rectanglee);
+                        model.setShow_more("Show More");
+                        list_type_home_Model.add(model);
+                        Log.e("RESPONE DATA", model.toString());
+                    }
+                }catch (Exception e){
+                    Log.e("Error Exception",e.toString());
+                }
+                recyclerView_type_home.setLayoutManager(new GridLayoutManager(getApplicationContext(),1));
+                adapter_type_home = new ViewTypeHomeAdapter(getApplicationContext(),list_type_home_Model);
+                recyclerView_type_home.setAdapter(adapter_type_home);
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TESTING",error.getMessage());
+            }
+        });
+        mRequestQueue.add(request);
     }
 }
