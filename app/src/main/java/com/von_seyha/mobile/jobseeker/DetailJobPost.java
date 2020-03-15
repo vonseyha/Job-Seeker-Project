@@ -9,49 +9,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DetailJobPost extends AppCompatActivity {
 
-    ImageView btn_back,btn_Setting,getImg_back  ;
-    TextView Job_Title_detail , input_term , input_last_date,input_req,input_exp,input_email,input_tel ,apply_email;
+    ImageView btn_back,btn_Setting;
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_job_post);
         btn_back = findViewById(R.id.row_back);
         btn_Setting = findViewById(R.id.setting_img);
-
-        getImg_back = findViewById(R.id.Image_detail_Job);
-        Job_Title_detail = findViewById(R.id.Job_Title_detail);
-        input_term = findViewById(R.id.input_term);
-        input_last_date = findViewById(R.id.input_last_date);
-        input_req = findViewById(R.id.input_req);
-        input_exp = findViewById(R.id.input_exp);
-        input_email = findViewById(R.id.input_email);
-        input_tel = findViewById(R.id.input_tel);
-        apply_email = findViewById(R.id.apply_email);
-
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
-        String term = intent.getStringExtra("term");
-        String lastdate = intent.getStringExtra("lastdate");
-        String requirement = intent.getStringExtra("requirement");
-        String experience = intent.getStringExtra("experience");
-        String email = intent.getStringExtra("email");
-        String phone = intent.getStringExtra("phone");
-
-        getImg_back.setImageResource(R.drawable.choosed);
-        Job_Title_detail.setText(title);
-        input_term.setText(term);
-        input_last_date.setText(lastdate);
-        input_req.setText(requirement);
-        input_exp.setText(experience);
-        input_email.setText(email);
-        input_tel.setText(phone);
-        apply_email.setText(email);
+        bottomNavigationView = findViewById(R.id.tab_button);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +31,40 @@ public class DetailJobPost extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+//                switch (item.getItemId()){
+//                    case R.id.nav_profile:
+////                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
+////                        overridePendingTransition(0,0);
+//                        return  true;
+//
+//                    case R.id.nav_job:
+//                        Intent typeJob = new Intent(getApplicationContext(),activity_viewtype_job.class);
+//                        startActivity(typeJob);
+//                        overridePendingTransition(0,0);
+//                        return  true;
+//
+//                    case R.id.nav_home:
+//                        Intent typeCv = new Intent(getApplicationContext(),grid_viewitemhome.class);
+//                        startActivity(typeCv);
+//                        overridePendingTransition(0,0);
+//                        return  true;
+//
+//                    case R.id.nav_cv:
+//                        Intent intent3 = new Intent(getApplicationContext(),activity_viewtype_cv.class);
+//                        startActivity(intent3);
+//                        overridePendingTransition(0,0);
+//                        return  true;
+//                }
+//
+//                return false;
+//            }
+//        });
+
 
         btn_Setting.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent"
+    android:layout_height="650dp"
     tools:context=".PostJob">
 
     <LinearLayout
@@ -32,14 +32,15 @@
             android:textSize="20sp"
             android:layout_marginRight="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:gravity="end" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/profile_post_job"
         android:layout_width="200dp"
         android:layout_height="80dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:src="@drawable/background_image_job"/>
     <TextView
@@ -48,14 +49,14 @@
         android:layout_height="wrap_content"
         android:text="Uploade Photo"
         android:textSize="15sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         />
 
     <com.google.android.material.textfield.TextInputLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     android:layout_marginTop="5dp"
     android:layout_marginLeft="30dp"
     android:layout_marginRight="30dp"
@@ -64,12 +65,12 @@
         android:id="@+id/companyname_post_job"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Term">
@@ -77,12 +78,12 @@
             android:id="@+id/term_post_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Job Title">
@@ -90,12 +91,12 @@
             android:id="@+id/title_post_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Requirement">
@@ -103,12 +104,12 @@
             android:id="@+id/requirement_post_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Experience">
@@ -116,12 +117,12 @@
             android:id="@+id/experience_post_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Email">
@@ -129,12 +130,12 @@
             android:id="@+id/email_post_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Address">
@@ -142,11 +143,11 @@
             android:id="@+id/address_post_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Last Date">
@@ -154,12 +155,12 @@
             android:id="@+id/lastdate_post_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Phone Number">
@@ -167,7 +168,7 @@
             android:id="@+id/phone_number_post_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
