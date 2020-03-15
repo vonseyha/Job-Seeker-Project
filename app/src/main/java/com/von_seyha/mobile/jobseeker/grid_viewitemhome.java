@@ -12,7 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,7 +39,8 @@ public class grid_viewitemhome extends AppCompatActivity {
     ViewTypeHomeAdapter adapter_type_home;
     ArrayList<ViewTypeHomeModel> list_type_home_Model;
 
-    ImageView Employer_function,Seeker_function,job_want , postjob;
+    ImageView Employer_function,Seeker_function,job_want ;
+    Button postjob;
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
