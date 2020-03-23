@@ -32,9 +32,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-
 public class grid_viewitemhome extends AppCompatActivity {
-
     RecyclerView recyclerView_type_home;
     ViewTypeHomeAdapter adapter_type_home;
     ArrayList<ViewTypeHomeModel> list_type_home_Model;
@@ -42,6 +40,7 @@ public class grid_viewitemhome extends AppCompatActivity {
     ImageView Employer_function,Seeker_function,job_want ;
     Button postjob;
     BottomNavigationView bottomNavigationView;
+    TextView EMAIL_L , USERNAME_L , ADDRESS_L;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +52,20 @@ public class grid_viewitemhome extends AppCompatActivity {
         postjob = findViewById(R.id.btn_postjob);
         bottomNavigationView = findViewById(R.id.tab_button);
 
-        list_type_home_Model = new ArrayList<>();
+        EMAIL_L = findViewById(R.id.email_l);
+        USERNAME_L = findViewById(R.id.username_l);
+        ADDRESS_L = findViewById(R.id.address_l);
 
+        Intent intent = getIntent();
+        String username_l = intent.getStringExtra("username_l");
+        String email_l = intent.getStringExtra("email_l");
+        String address_l = intent.getStringExtra("address_l");
+
+        EMAIL_L.setText(email_l);
+        USERNAME_L.setText(username_l);
+        ADDRESS_L.setText(address_l);
+
+        list_type_home_Model = new ArrayList<>();
         String[][] Info = {
                 {"Mobile Developer", "Web Developer", "Accounting", "Digital Markating", "Teacher",},
                 {"Full Time","Part Time","Full Time","Part Time","Part Time"},
@@ -81,6 +92,7 @@ public class grid_viewitemhome extends AppCompatActivity {
             model.setShow_more("Show More");
             list_type_home_Model.add(model);
         }
+
         recyclerView_type_home.setLayoutManager(new GridLayoutManager(this,1));
         adapter_type_home = new ViewTypeHomeAdapter(this,list_type_home_Model);
         recyclerView_type_home.setAdapter(adapter_type_home);
@@ -118,11 +130,10 @@ public class grid_viewitemhome extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-//                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
-//                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(),SeekerProfile_AfterLofgin.class));
+                        overridePendingTransition(0,0);
                         return  true;
 
                     case R.id.nav_job:
@@ -143,20 +154,20 @@ public class grid_viewitemhome extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return  true;
                 }
-
                 return false;
             }
         });
     }
+
+
 
     private RequestQueue mRequestQueue;
     @Override
     protected void onPostResume() {
         super.onPostResume();
         mRequestQueue = Volley.newRequestQueue(getApplicationContext());
-        jsonRequest("http://192.168.200.64:8000/api/postjob/read");
+        jsonRequest("http://192.168.200.62:8000/api/postjob/read");
     }
-
     private void jsonRequest(String url)
     {
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null, new Response.Listener<JSONArray>() {
@@ -164,17 +175,30 @@ public class grid_viewitemhome extends AppCompatActivity {
             public void onResponse(JSONArray response) {
                 try
                 {
+
+                    int [] Image = {
+                            R.drawable.choosed,
+                            R.drawable.chooseg,
+                            R.drawable.chooseh,
+                            R.drawable.choosej,
+                            R.drawable.choosef,
+                            R.drawable.choosek,
+                            R.drawable.chooseh,
+                            R.drawable.chooseb,
+                            R.drawable.choosec,
+                    };
                     list_type_home_Model = new ArrayList<>();
                     for(int i=0 ; i<response.length(); i++){
                        JSONObject jsonObject = response.getJSONObject(i);
                         ViewTypeHomeModel model = new ViewTypeHomeModel();
                         //int a = jsonObject.getInt("Icon");
-                        model.setImage_background(R.drawable.choosed);
+                        model.setImage_background(Image[i]);
                         model.setTitle(jsonObject.getString("Title"));
                         model.setTerm(jsonObject.getString("Term"));
                         model.setEmail(jsonObject.getString("Email"));
                         model.setPassword(jsonObject.getString("Phone"));
                         //Addmore
+                        model.setAddress(jsonObject.getString("Address"));
                         model.setRequirement(jsonObject.getString("Requirement"));
                         model.setExperience(jsonObject.getString("Experience"));
                         model.setLastdate(jsonObject.getString("Lastdate"));

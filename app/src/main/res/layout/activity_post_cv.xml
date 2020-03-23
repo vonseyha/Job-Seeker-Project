@@ -18,8 +18,8 @@
             android:id="@+id/btn_back_post_cv"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/icon_back"
             />
         <TextView
@@ -29,7 +29,7 @@
             android:textAlignment="textEnd"
             android:text="POST"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_marginRight="20dp"
             android:textStyle="bold"
             android:textColor="@color/colorAccent"
@@ -39,8 +39,8 @@
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image_post_cv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:civ_border_color="@color/colorAccent"
         app:civ_border_width="3dp"
         android:layout_gravity="center"
@@ -57,79 +57,79 @@
         android:textColor="@color/colorAccent"
         />
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_post_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Name">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/name_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_post_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Email">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:textSize="20sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/interest_post_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Interest">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/interest_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/experience_post_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Experience">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/experience_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/language_post_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Language">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/language_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lastupdate_post_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Last Update">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lastupdate_post_cv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
@@ -138,14 +138,22 @@
 
     <Button
         android:id="@+id/uploade_pdf_post_cv"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_gravity="center"
-        android:layout_width="200dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Uploade file"
         android:textColor="#ffff"
-        android:textSize="20dp"
+        android:textSize="17dp"
         android:background="@color/colorAccent"/>
+
+    <WebView
+        android:id="@+id/webView_postcv"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="150dp"
+        android:layout_width="100dp"
+        android:layout_height="130dp"/>
+
 
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.von_seyha.mobile.jobseeker.R;
 import com.von_seyha.mobile.jobseeker.holder.ViewTypeCvHomeHolder;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeCvHomeModel;
@@ -33,6 +34,7 @@ public class ProfileEditAfterloginadapter extends RecyclerView.Adapter<ViewTypeC
 
     @Override
     public void onBindViewHolder(@NonNull ViewTypeCvHomeHolder holder, int position) {
+        //Picasso.get().load(listCVHomeModel.get(position).getProfile_cv_post()).into(holder.profile_cv_post);
         holder.profile_cv_post.setImageResource(listCVHomeModel.get(position).getProfile_cv_post());
         holder.btn_view.setImageResource(listCVHomeModel.get(position).getBtn_view());
         holder.name_cv_post.setText(listCVHomeModel.get(position).getName_cv_post());

@@ -15,15 +15,16 @@ tools:context=".EmployerProfile">
         <Button
             android:id="@+id/btn_back_profile_employer"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/icon_back"
             />
         <TextView
             android:id="@+id/btn_correct_edit_postjob"
-            android:layout_width="310dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
             android:textAlignment="center"
             android:text="PROFILE"
             android:layout_marginTop="10dp"
@@ -33,22 +34,23 @@ tools:context=".EmployerProfile">
 
         <Button
             android:id="@+id/btn_CLK_profile_employer"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="70dp"
             android:background="@drawable/ic_settings_black_24dp" />
     </LinearLayout>
 
     <RelativeLayout
         android:background="@drawable/background_profile"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="140dp"
         android:layout_marginTop="10dp">
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image_employer"
-            android:layout_width="120dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:civ_border_color="@color/colorAccent"
             app:civ_border_width="3dp"
             android:layout_gravity="center"
@@ -82,7 +84,7 @@ tools:context=".EmployerProfile">
         android:layout_marginTop="5dp"
         android:id="@+id/recyclerview_employer_profile"
         android:layout_width="match_parent"
-        android:layout_height="460dp">
+        android:layout_height="360dp">
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -92,4 +94,10 @@ tools:context=".EmployerProfile">
         android:background="#ffff"
         app:menu="@menu/nav_bottom_items">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <TextView
+        android:id="@+id/email_detail"
+        android:text="seyha@gmail.com"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

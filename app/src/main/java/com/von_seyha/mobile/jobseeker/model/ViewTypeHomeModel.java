@@ -1,11 +1,24 @@
 package com.von_seyha.mobile.jobseeker.model;
 
 public class ViewTypeHomeModel {
-    int image_background , image_button_show;
+    int image_background ;
+    int image_button_show;
     String Title , Term , Email , Password , show_more;
 
     //Add more
-    String requirement , experience,lastdate;
+    String requirement;
+    String experience;
+    String lastdate;
+    String address;
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
 
     public String getRequirement() {
         return requirement;

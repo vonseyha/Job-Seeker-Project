@@ -10,10 +10,10 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_cv_home"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         app:cardCornerRadius="5dp"
-        android:layout_width="180dp"
-        android:layout_height="240dp">
+        android:layout_width="160dp"
+        android:layout_height="230dp">
 
         <RelativeLayout
             android:id="@+id/box_cv_home"
@@ -26,8 +26,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="14dp"
                 android:src="@drawable/sekker_profile_icon"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 app:civ_border_width="2dp"
                 app:civ_border_color="#3E0765"
                 />
@@ -38,7 +38,7 @@
                 android:layout_marginTop="20dp"
                 android:text="Von Seyha"
                 android:layout_marginLeft="10dp"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:layout_toRightOf="@+id/profile_cv_post"
                 />
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_below="@+id/name_cv_post"
                 android:text="Post :11-02-2020 "
                 android:layout_marginLeft="10dp"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:layout_toRightOf="@+id/profile_cv_post"
                 />
 
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mobile Delveloper"
-                android:textSize="19sp"
+                android:textSize="16sp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 />
@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Experience:2-3 years"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:layout_marginLeft="5dp"
                 android:paddingTop="3dp"
                 />
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="seyhavon@gmail.com"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_marginLeft="5dp"
                 android:paddingTop="3dp"
                 />
@@ -88,16 +88,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0969840040"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_marginLeft="5dp"
                 android:paddingTop="3dp"
                 />
-
             <ImageView
                 android:id="@+id/btn_view_cv"
                 android:layout_below="@+id/password_cv_home"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="37dp"
+                android:layout_marginLeft="30dp"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:src="@drawable/rectanglee"/>
@@ -107,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="View Cv"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textColor="#ffff"
                 android:textAlignment="center"
                 android:layout_marginTop="17dp"/>

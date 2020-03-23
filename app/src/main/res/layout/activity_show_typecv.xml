@@ -6,64 +6,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/android_"
     tools:context=".ShowTypecv">
 
-    <RelativeLayout
-        android:id="@+id/box_nav_show_typecv"
+    <ImageView
+        android:id="@+id/btn_back_show_type_post_cv"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="25dp"
+        android:layout_height="15dp"
+        android:src="@drawable/icon_back"/>
+
+    <ImageView
+        android:id="@+id/image_show_type_post_cv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/background_iconbcv"/>
+    <TextView
+        android:id="@+id/title_show_type_post_cv"
+        android:text="Mobile Development"
+        android:textSize="17sp"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:src="@drawable/rectangles"/>
-        <LinearLayout
-            android:id="@+id/nav_icon_show_typecv"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/button_back_show_typecv"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:src="@drawable/icon_back"/>
-            <ImageView
-                android:id="@+id/button_search_show_typecv"
-                android:layout_marginLeft="310dp"
-                android:layout_marginTop="15dp"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:src="@drawable/search_icon"/>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/nav_title_show_typecv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nav_icon_show_typecv"
-            android:text="Accounting CV"
-            android:textAllCaps="true"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textColor="#ffff"
-            android:textStyle="bold"/>
-    </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/recyclerview_show_typecv"
         android:layout_width="match_parent"
-        android:layout_height="600dp">
+        android:layout_height="match_parent">
     </androidx.recyclerview.widget.RecyclerView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/tab_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffff"
-        app:menu="@menu/nav_bottom_items">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </LinearLayout>

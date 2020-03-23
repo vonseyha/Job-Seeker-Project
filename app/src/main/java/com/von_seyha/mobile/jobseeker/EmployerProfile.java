@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeHomeAdapter;
@@ -25,6 +26,8 @@ public class EmployerProfile extends AppCompatActivity {
 
     Button btn_back , btn_profileEmployer;
     BottomNavigationView bottomNavigationView;
+    TextView name_employer_profile , address_emloyer_profile , email_detail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,18 @@ public class EmployerProfile extends AppCompatActivity {
         btn_profileEmployer = findViewById(R.id.btn_CLK_profile_employer);
         recyclerView_type_home = findViewById(R.id.recyclerview_employer_profile);
         bottomNavigationView = findViewById(R.id.tab_button);
+        name_employer_profile = findViewById(R.id.name_employer_profile);
+        address_emloyer_profile = findViewById(R.id.address_emloyer_profile);
+        email_detail = findViewById(R.id.email_detail);
+
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("Title");
+        String address = intent.getStringExtra("Address");
+        String email = intent.getStringExtra("Email");
+
+        name_employer_profile.setText(name);
+        address_emloyer_profile.setText(address);
+        email_detail.setText(email);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +60,13 @@ public class EmployerProfile extends AppCompatActivity {
         btn_profileEmployer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String Name = name_employer_profile.getText().toString();
+                String Address = address_emloyer_profile.getText().toString();
+                String Email = email_detail.getText().toString();
                 Intent intent = new Intent(getApplicationContext(),DetailProfileEmployer.class);
+                intent.putExtra("Name",Name);
+                intent.putExtra("Address",Address);
+                intent.putExtra("Email",Email);
                 startActivity(intent);
             }
         });

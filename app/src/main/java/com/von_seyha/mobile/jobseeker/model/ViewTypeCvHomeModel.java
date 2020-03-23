@@ -2,7 +2,8 @@ package com.von_seyha.mobile.jobseeker.model;
 
 public class ViewTypeCvHomeModel {
 
-    int profile_cv_post,btn_view;
+    int profile_cv_post;
+    int btn_view;
     String  name_cv_post,
             last_update_cv_post,
             function_cv_home,

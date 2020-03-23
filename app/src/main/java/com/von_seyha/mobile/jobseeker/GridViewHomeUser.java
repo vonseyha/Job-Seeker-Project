@@ -1,45 +1,51 @@
 package com.von_seyha.mobile.jobseeker;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeHomeAdapter;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeHomeModel;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
-public class ViewitemhomeProfileAfterLogin extends AppCompatActivity  {
+public class GridViewHomeUser extends AppCompatActivity {
 
     RecyclerView recyclerView_type_home;
     ViewTypeHomeAdapter adapter_type_home;
     ArrayList<ViewTypeHomeModel> list_type_home_Model;
-
     ImageView Employer_function,Seeker_function,job_want ;
-            Button postjob;
     BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grid_viewitemhome);
+        setContentView(R.layout.activity_grid_view_home_user);
 
         recyclerView_type_home = findViewById(R.id.recyclerview_type_home);
         Employer_function = findViewById(R.id.employer_function);
         Seeker_function = findViewById(R.id.seeker_function);
         job_want = findViewById(R.id.go_jobwant);
-        postjob = findViewById(R.id.btn_postjob);
-
         bottomNavigationView = findViewById(R.id.tab_button);
 
         list_type_home_Model = new ArrayList<>();
@@ -77,8 +83,8 @@ public class ViewitemhomeProfileAfterLogin extends AppCompatActivity  {
         Employer_function.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(getApplicationContext(),Login.class );
-               startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(),Login.class );
+                startActivity(intent);
             }
         });
 
@@ -93,14 +99,7 @@ public class ViewitemhomeProfileAfterLogin extends AppCompatActivity  {
         job_want.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),activity_viewcvhome.class);
-                startActivity(intent);
-            }
-        });
-        postjob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PostJob.class);
+                Intent intent = new Intent(getApplicationContext(),GridViewCvHomeUser.class);
                 startActivity(intent);
             }
         });
@@ -111,8 +110,8 @@ public class ViewitemhomeProfileAfterLogin extends AppCompatActivity  {
 
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-                       startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
-                        overridePendingTransition(0,0);
+//                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
+//                        overridePendingTransition(0,0);
                         return  true;
 
                     case R.id.nav_job:
@@ -139,4 +138,67 @@ public class ViewitemhomeProfileAfterLogin extends AppCompatActivity  {
         });
     }
 
+    private RequestQueue mRequestQueue;
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        jsonRequest("http://192.168.200.62:8000/api/postjob/read");
+    }
+
+    private void jsonRequest(String url)
+    {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try
+                {
+                    int [] Image = {
+                            R.drawable.choosed,
+                            R.drawable.chooseg,
+                            R.drawable.chooseh,
+                            R.drawable.choosej,
+                            R.drawable.choosef,
+                            R.drawable.choosek,
+                            R.drawable.chooseh,
+                            R.drawable.chooseb,
+                            R.drawable.choosec,
+                            R.drawable.choosec,
+                    };
+                    list_type_home_Model = new ArrayList<>();
+                    for(int i=0 ; i<response.length(); i++){
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        ViewTypeHomeModel model = new ViewTypeHomeModel();
+                        model.setImage_background(Image[i]);
+                        model.setTitle(jsonObject.getString("Title"));
+                        model.setTerm(jsonObject.getString("Term"));
+                        model.setEmail(jsonObject.getString("Email"));
+                        model.setPassword(jsonObject.getString("Phone"));
+                        //Addmore
+                        model.setAddress(jsonObject.getString("Address"));
+                        model.setRequirement(jsonObject.getString("Requirement"));
+                        model.setExperience(jsonObject.getString("Experience"));
+                        model.setLastdate(jsonObject.getString("Lastdate"));
+                        model.setImage_button_show(R.drawable.rectanglee);
+                        model.setShow_more("Show More");
+                        list_type_home_Model.add(model);
+                        Log.e("RESPONE DATA", model.toString());
+                    }
+                }catch (Exception e){
+                    Log.e("Error Exception",e.toString());
+                }
+                recyclerView_type_home.setLayoutManager(new GridLayoutManager(getApplicationContext(),1));
+                adapter_type_home = new ViewTypeHomeAdapter(getApplicationContext(),list_type_home_Model);
+                recyclerView_type_home.setAdapter(adapter_type_home);
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TESTING",error.getMessage());
+            }
+        });
+        mRequestQueue.add(request);
+    }
 }
+

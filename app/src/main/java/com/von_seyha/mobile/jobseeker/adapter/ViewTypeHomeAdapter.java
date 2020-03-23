@@ -53,6 +53,7 @@ public class ViewTypeHomeAdapter extends RecyclerView.Adapter<ViewTypeHomeHolder
         holder.requirement.setText(list_Home_Model.get(position).getRequirement());
         holder.experience.setText(list_Home_Model.get(position).getExperience());
         holder.lastdate.setText(list_Home_Model.get(position).getLastdate());
+        holder.address.setText(list_Home_Model.get(position).getAddress());
 
         holder.image_background.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,7 @@ public class ViewTypeHomeAdapter extends RecyclerView.Adapter<ViewTypeHomeHolder
                 intent.putExtra("experience",list_Home_Model.get(position).getExperience());
                 intent.putExtra("email",list_Home_Model.get(position).getEmail());
                 intent.putExtra("phone",list_Home_Model.get(position).getPassword());
+                intent.putExtra("address",list_Home_Model.get(position).getAddress());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

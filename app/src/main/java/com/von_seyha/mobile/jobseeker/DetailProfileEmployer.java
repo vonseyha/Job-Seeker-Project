@@ -8,21 +8,55 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DetailProfileEmployer extends AppCompatActivity {
 
+//    btn_back_detail_profile_employer
+//            //profile_image_detail_profile_employer
+//    name_detail_profile_employer
+//            address_detail_profile_employer
+//            des_email
+//    des_com_location
+//            des_com_about_company
+//    des_edit_profile
+//    logout(icon)
+//    des_logout
+
 
     Button btn_back;
     BottomNavigationView bottomNavigationView;
 
+    TextView name_detail_profile_employer ,
+            address_detail_profile_employer,
+            des_email, des_com_location ,
+            des_com_about_company ,
+            des_edit_profile ,
+            des_logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_profile_employer);
         btn_back = findViewById(R.id.btn_back_detail_profile_employer);
-        bottomNavigationView = findViewById(R.id.tab_button);
+                name_detail_profile_employer  = findViewById(R.id.name_detail_profile_employer);
+                address_detail_profile_employer = findViewById(R.id.address_detail_profile_employer);
+                des_email = findViewById(R.id.des_com_email) ;
+                des_com_location = findViewById(R.id.des_com_location);
+                des_com_about_company = findViewById(R.id.des_com_about_company);
+                des_edit_profile = findViewById(R.id.des_edit_profile);
+                des_logout = findViewById(R.id.des_logout);
+
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("Name");
+        String address = intent.getStringExtra("Address");
+        String email = intent.getStringExtra("Email");
+
+        name_detail_profile_employer.setText(name);
+        address_detail_profile_employer.setText(address);
+        des_email.setText(email);
+        des_com_location.setText(address);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,38 +65,5 @@ public class DetailProfileEmployer extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//
-//                switch (item.getItemId()){
-//                    case R.id.nav_profile:
-////                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
-////                        overridePendingTransition(0,0);
-//                        return  true;
-//
-//                    case R.id.nav_job:
-//                        Intent typeJob = new Intent(getApplicationContext(),activity_viewtype_job.class);
-//                        startActivity(typeJob);
-//                        overridePendingTransition(0,0);
-//                        return  true;
-//
-//                    case R.id.nav_home:
-//                        Intent typeCv = new Intent(getApplicationContext(),grid_viewitemhome.class);
-//                        startActivity(typeCv);
-//                        overridePendingTransition(0,0);
-//                        return  true;
-//
-//                    case R.id.nav_cv:
-//                        Intent intent3 = new Intent(getApplicationContext(),activity_viewtype_cv.class);
-//                        startActivity(intent3);
-//                        overridePendingTransition(0,0);
-//                        return  true;
-//                }
-//
-//                return false;
-//            }
-//        });
-
     }
 }

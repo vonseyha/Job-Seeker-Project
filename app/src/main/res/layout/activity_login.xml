@@ -9,6 +9,11 @@
     android:background="@drawable/background_login"
     tools:context=".Login">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <Button
         android:id="@+id/btn_back_login"
         android:layout_marginTop="20dp"
@@ -105,6 +110,23 @@
                 android:text=" Register"/>
         </LinearLayout>
 
+        </LinearLayout>
+
     </LinearLayout>
+    <TextView
+        android:id="@+id/fullname"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="fullname"/>
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="email"/>
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="address"/>
 
 </LinearLayout>

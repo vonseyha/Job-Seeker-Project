@@ -55,8 +55,8 @@ public class SeekerProfile_AfterLofgin extends AppCompatActivity {
 
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-//                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
-//                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(),SeekerProfile_AfterLofgin.class));
+                        overridePendingTransition(0,0);
                         return  true;
 
                     case R.id.nav_job:
@@ -108,7 +108,7 @@ public class SeekerProfile_AfterLofgin extends AppCompatActivity {
         for (int i = 0 ; i < 8 ; i++ ){
 
             ViewTypeCvHomeModel model = new ViewTypeCvHomeModel();
-            model.setProfile_cv_post( Image[i]);
+            model.setProfile_cv_post(Image[i]);
             model.setBtn_view(R.drawable.rectanglee);
             model.setName_cv_post(Info[0][i]);
             model.setLast_update_cv_post(Info[1][i]);

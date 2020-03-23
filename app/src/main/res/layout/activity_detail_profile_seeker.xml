@@ -16,8 +16,8 @@
             android:id="@+id/btn_back_edit_profile_employer"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/icon_back"
             />
         <TextView
@@ -25,12 +25,11 @@
             android:layout_width="310dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="EDIT PROFILE"
+            android:text="PROFILE"
             android:layout_marginTop="10dp"
             android:textSize="25sp"
             android:layout_marginRight="20dp"
             android:textStyle="bold"/>
-
 
     </LinearLayout>
 
@@ -42,8 +41,8 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image_edit_employer"
-            android:layout_width="120dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:civ_border_color="@color/colorAccent"
             app:civ_border_width="3dp"
             android:layout_gravity="center"
@@ -51,20 +50,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="145dp"
             />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/cicrlea"
-            android:layout_marginTop="77dp"
-            android:layout_marginLeft="225dp"
-            />
-        <Button
-            android:id="@+id/take_photo_edit_profile_employer"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/camara"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="230dp"/>
         <TextView
             android:id="@+id/name_edit_employer_profile"
             android:layout_width="match_parent"
@@ -88,164 +73,201 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="470dp">
-        <TextView
-            android:id="@+id/acc_info_personal"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="20dp"
-            android:text="Account Info"
-            android:background="#FFFFFF"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
+        android:layout_height="340dp">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:padding="10dp"
+            android:layout_height="460dp">
+            <TextView
+                android:id="@+id/acc_info_company"
+                android:layout_marginLeft="20dp"
+                android:text="Account Info"
+                android:background="#FFFFFF"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-        <RelativeLayout
-            android:id="@+id/relativelyout_personal"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/personal_name"
-                android:layout_marginLeft="30dp"
+            <RelativeLayout
+                android:id="@+id/relativelyout_company"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/p_imageh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
-
-            <TextView
-                android:id="@+id/des_personal"
-                android:layout_toRightOf="@+id/personal_name"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:text="Name"
-                android:textSize="17sp"
-                android:textStyle="bold"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:padding="5dp"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_toRightOf="@+id/personal_name"
-                android:layout_below="@+id/des_personal"
-                android:layout_marginLeft="20dp"
-                android:text="Von Seyha "
-                android:textSize="13sp"
-                android:id="@+id/des_personal_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/company_namedetail_profile_employer"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/p_imagec"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
 
-            <ImageView
-                android:id="@+id/personal_email"
-                android:layout_below="@+id/personal_name"
-                android:src="@drawable/p_imagef"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/des_com"
+                    android:layout_toRightOf="@+id/company_namedetail_profile_employer"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:text="Company Name"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/des_email_personal"
-                android:layout_toRightOf="@+id/personal_name"
-                android:layout_below="@+id/des_personal_name"
-                android:layout_marginTop="10sp"
-                android:layout_marginLeft="15dp"
-                android:text="Email"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_toRightOf="@+id/company_namedetail_profile_employer"
+                    android:layout_below="@+id/des_com"
+                    android:layout_marginLeft="20dp"
+                    android:text="National institute of Post, Telecome, ICT (NIPTICT) "
+                    android:textSize="13sp"
+                    android:id="@+id/des_com_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                android:layout_toRightOf="@+id/personal_name"
-                android:layout_below="@+id/des_email_personal"
-                android:layout_marginLeft="20dp"
-                android:text="seyhavon@gmail.com"
-                android:textSize="13sp"
-                android:id="@+id/des_com_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/email_icon"
+                    android:layout_below="@+id/company_namedetail_profile_employer"
+                    android:src="@drawable/p_imagef"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
 
-            <ImageView
-                android:id="@+id/personal_address"
-                android:layout_below="@+id/personal_email"
-                android:src="@drawable/p_imageg"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/des_email"
+                    android:layout_toRightOf="@+id/email_icon"
+                    android:layout_below="@+id/des_com"
+                    android:layout_marginTop="35sp"
+                    android:layout_marginLeft="15dp"
+                    android:text="Email"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/des_add_personal"
-                android:layout_toRightOf="@+id/personal_address"
-                android:layout_below="@+id/des_email_personal"
-                android:layout_marginTop="25sp"
-                android:layout_marginLeft="15dp"
-                android:text="Address"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_toRightOf="@+id/email_icon"
+                    android:layout_below="@+id/des_email"
+                    android:layout_marginLeft="20dp"
+                    android:text="niptict.edu.institute@gmail.com"
+                    android:textSize="13sp"
+                    android:id="@+id/des_com_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                android:layout_toRightOf="@+id/personal_address"
-                android:layout_below="@+id/des_add_personal"
-                android:layout_marginLeft="20dp"
-                android:text="Comer Street 13 and 102, SangKat PrekLeap, Khan Chroy Chongva, Pnom Phen"
-                android:textSize="13sp"
-                android:id="@+id/des_add"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/location"
+                    android:layout_below="@+id/email_icon"
+                    android:src="@drawable/p_imageg"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
 
-            <ImageView
-                android:id="@+id/edit_profile_personal"
-                android:layout_below="@+id/personal_address"
-                android:src="@drawable/p_imagk"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/des_location"
+                    android:layout_toRightOf="@+id/location"
+                    android:layout_below="@+id/des_email"
+                    android:layout_marginTop="35sp"
+                    android:layout_marginLeft="15dp"
+                    android:text="Address"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/des_edit_profile_personal"
-                android:layout_toRightOf="@+id/edit_profile_personal"
-                android:layout_below="@+id/des_add"
-                android:layout_marginTop="5sp"
-                android:layout_marginLeft="15dp"
-                android:text="Edite Profile"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_toRightOf="@+id/location"
+                    android:layout_below="@+id/des_location"
+                    android:layout_marginLeft="20dp"
+                    android:text="National Road 6A,Preak Leap ChroyChangvar, Phnom Penh "
+                    android:textSize="12sp"
+                    android:id="@+id/des_com_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            <ImageView
-                android:id="@+id/logout_personal"
-                android:layout_below="@+id/edit_profile_personal"
-                android:src="@drawable/iconlogout"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                <ImageView
+                    android:id="@+id/about_company"
+                    android:layout_below="@+id/location"
+                    android:src="@drawable/p_imaged"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
 
-            <TextView
-                android:id="@+id/des_logout"
-                android:layout_toRightOf="@+id/logout_personal"
-                android:layout_below="@+id/des_edit_profile_personal"
-                android:layout_marginTop="25sp"
-                android:layout_marginLeft="15dp"
-                android:text="Logout"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/des_about_company"
+                    android:layout_toRightOf="@+id/about_company"
+                    android:layout_below="@+id/des_location"
+                    android:layout_marginTop="35sp"
+                    android:layout_marginLeft="15dp"
+                    android:text="About Company"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-        </RelativeLayout>
+                <TextView
+                    android:layout_toRightOf="@+id/about_company"
+                    android:layout_below="@+id/des_about_company"
+                    android:layout_marginLeft="20dp"
+                    android:text="NIPTICT is research and training institute founded by the Ministry of posts and Telecommunications of Cambodia (MPTC)...."
+                    android:textSize="11sp"
+                    android:id="@+id/des_com_about_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/edit_profile"
+                    android:layout_below="@+id/about_company"
+                    android:src="@drawable/p_imageb"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:id="@+id/des_edit_profile"
+                    android:layout_toRightOf="@+id/edit_profile"
+                    android:layout_below="@+id/des_about_company"
+                    android:layout_marginTop="55sp"
+                    android:layout_marginLeft="15dp"
+                    android:text="Edite Profile"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:id="@+id/logout"
+                    android:layout_below="@+id/edit_profile"
+                    android:src="@drawable/iconlogout"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:id="@+id/des_logout"
+                    android:layout_toRightOf="@+id/logout"
+                    android:layout_below="@+id/des_edit_profile"
+                    android:layout_marginTop="25sp"
+                    android:layout_marginLeft="15dp"
+                    android:text="Logout"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/tab_button"

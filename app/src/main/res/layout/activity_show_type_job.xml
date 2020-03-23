@@ -5,67 +5,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/android"
     android:orientation="vertical"
     tools:context=".ShowTypeJob">
+    <ImageView
+        android:id="@+id/btn_back_show_type_post"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="25dp"
+        android:layout_height="15dp"
+        android:src="@drawable/icon_back"/>
 
-    <RelativeLayout
-        android:id="@+id/box_show_typejob"
+    <ImageView
+        android:id="@+id/image_show_type_post"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mobile_background_icon"/>
+    <TextView
+        android:id="@+id/title_show_type_post"
+        android:text="Mobile Development"
+        android:textSize="17sp"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:src="@drawable/rectangles"/>
-        <LinearLayout
-            android:id="@+id/nav_icon_show_typejob"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/button_back_show_typejob"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:src="@drawable/icon_back"/>
-            <ImageView
-                android:id="@+id/button_search_show_typejob"
-                android:layout_marginLeft="310dp"
-                android:layout_marginTop="15dp"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:src="@drawable/search_icon"/>
-
-        </LinearLayout>
-        <TextView
-            android:id="@+id/nav_title_show_typejob"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nav_icon_show_typejob"
-            android:text="Accounting Job"
-            android:textAllCaps="true"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textColor="#ffff"
-            android:textStyle="bold"/>
-    </RelativeLayout>
+        android:layout_height="wrap_content" />
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="5dp"
-        android:id="@+id/recyclerview_show_typejob"
+        android:layout_marginTop="25dp"
+        android:id="@+id/recyclerview_type_home"
         android:layout_width="match_parent"
-        android:layout_height="600dp">
+        android:layout_height="match_parent">
+
     </androidx.recyclerview.widget.RecyclerView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/tab_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffff"
-        app:menu="@menu/nav_bottom_items">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
 
 
 </LinearLayout>

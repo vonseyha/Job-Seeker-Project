@@ -7,66 +7,59 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeCvHomeAdapter;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeCvHomeModel;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
-public class SeekerProfile extends AppCompatActivity {
-    RecyclerView recyclerView;
-    ViewTypeCvHomeAdapter adapter;
-    ArrayList<ViewTypeCvHomeModel> listCV_Model;
+public class GridViewCvHomeUser extends AppCompatActivity {
 
-    Button btn_back , btn_clk_profile;
+    RecyclerView recyclerView_type_cv_home;
+    ViewTypeCvHomeAdapter adapter_type_cv_home;
+    ArrayList<ViewTypeCvHomeModel> listCvHomeModel;
+
+    ImageView btn_back ;
     BottomNavigationView bottomNavigationView;
-    TextView name_seeker_profile, address_seeker_profile;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seeker_profile);
-        recyclerView = findViewById(R.id.recyclerview_seeker_profile);
-        btn_back = findViewById(R.id.btn_back_profile_seeker);
-        btn_clk_profile = findViewById(R.id.btn_CLK_profile_seeker);
+        setContentView(R.layout.activity_grid_view_cv_home_user);
+
+        recyclerView_type_cv_home = findViewById(R.id.recyclerview_type_cv_home);
+        btn_back = findViewById(R.id.button_back_in_home_list_cv);
+
         bottomNavigationView = findViewById(R.id.tab_button);
-        name_seeker_profile = findViewById(R.id.name_seeker_profile);
-        address_seeker_profile = findViewById(R.id.address_seeker_profile);
-
-        Intent intent = getIntent();
-        String Name = intent.getStringExtra("Name");
-        String Email = intent.getStringExtra("Email");
-        name_seeker_profile.setText(Name);
-        address_seeker_profile.setText(Email);
-
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),activity_viewcvhome.class);
+                Intent intent = new Intent(getApplicationContext(),grid_viewitemhome.class);
                 startActivity(intent);
             }
         });
-        btn_clk_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Name = name_seeker_profile.getText().toString();
-                String Email = address_seeker_profile.getText().toString();
-                Intent intent = new Intent(getApplicationContext(),DetailProfileSeeker.class);
-                intent.putExtra("Name",Name);
-                intent.putExtra("Email",Email);
-                startActivity(intent);
-            }
-        });
+
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                 switch (item.getItemId()){
                     case R.id.nav_profile:
 //                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
@@ -96,9 +89,7 @@ public class SeekerProfile extends AppCompatActivity {
             }
         });
 
-
-        listCV_Model = new ArrayList<>();
-
+        listCvHomeModel = new ArrayList<>();
         String[][] Info = {
                 {"Von Seyha", "Korn Sanit", "Try Chanty", "Soy Sin", "Meng Visal","Tang Eamseng","Seb Bunly","Poth Vothha"},
                 {"Post: 10/12/2020","Post: 01/03/2020","Post: 11/02/2020","Post: 15/06/2020","Post: 10/12/2020","Post: 01/03/2020","Post: 11/02/2020","Post: 15/06/2020"},
@@ -131,10 +122,72 @@ public class SeekerProfile extends AppCompatActivity {
             model.setEmail_cv_home(Info[4][i]);
             model.setPassword_cv_home(Info[5][i]);
             model.setView_cv("View CV");
-            listCV_Model.add(model);
+            listCvHomeModel.add(model);
         }
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        adapter = new ViewTypeCvHomeAdapter(this ,listCV_Model );
-        recyclerView.setAdapter(adapter);
+
+        recyclerView_type_cv_home.setLayoutManager(new GridLayoutManager(this,2));
+        adapter_type_cv_home = new ViewTypeCvHomeAdapter(this ,listCvHomeModel );
+        recyclerView_type_cv_home.setAdapter(adapter_type_cv_home);
     }
-}
+
+    private RequestQueue mRequestQueue;
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        jsonRequest("http://192.168.200.62:8000/api/postcv/read");
+    }
+
+    private void jsonRequest(String url)
+    {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try
+                {
+                    int[] Image = {
+                            R.drawable.circle_profileb,
+                            R.drawable.circle_profilea,
+                            R.drawable.circle_profilec,
+                            R.drawable.circle_profiled,
+                            R.drawable.circle_profilee,
+                            R.drawable.circle_profilef,
+                            R.drawable.circle_profileg,
+                            R.drawable.circle_profilei,
+                    };
+
+                    listCvHomeModel = new ArrayList<>();
+                    for(int i=0 ; i<response.length(); i++){
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        ViewTypeCvHomeModel model = new ViewTypeCvHomeModel();
+                        //int a = jsonObject.getInt("Icon");
+                        model.setProfile_cv_post(Image[i]);
+                        model.setName_cv_post(jsonObject.getString("Fullname"));
+                        model.setLast_update_cv_post(jsonObject.getString("Lastdate"));
+                        model.setFunction_cv_home(jsonObject.getString("Interest"));
+                        model.setExperience_cv_home(jsonObject.getString("Experience"));
+                        model.setEmail_cv_home(jsonObject.getString("Email"));
+                        model.setPassword_cv_home(jsonObject.getString("Language"));
+                        model.setView_cv("View CV");
+                        model.setBtn_view(R.drawable.rectanglee);
+                        listCvHomeModel.add(model);
+                        Log.e("RESPONE DATA", model.toString());
+                    }
+                }catch (Exception e){
+                    Log.e("Error Exception",e.toString());
+                }
+                recyclerView_type_cv_home.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
+                adapter_type_cv_home = new ViewTypeCvHomeAdapter(getApplicationContext(),listCvHomeModel);
+                recyclerView_type_cv_home.setAdapter(adapter_type_cv_home);
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TESTING",error.getMessage());
+            }
+        });
+        mRequestQueue.add(request);
+    }
+    }
+

@@ -9,9 +9,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.von_seyha.mobile.jobseeker.DetailJobPost;
 import com.von_seyha.mobile.jobseeker.R;
 import com.von_seyha.mobile.jobseeker.SeekerProfile;
+import com.von_seyha.mobile.jobseeker.ViewDetailCvPost;
 import com.von_seyha.mobile.jobseeker.holder.ViewTypeCvHomeHolder;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeCvHomeModel;
 
@@ -35,8 +37,9 @@ public class ViewTypeCvHomeAdapter extends RecyclerView.Adapter<ViewTypeCvHomeHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewTypeCvHomeHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewTypeCvHomeHolder holder, final int position) {
         holder.profile_cv_post.setImageResource(listCVHomeModel.get(position).getProfile_cv_post());
+        //Picasso.get().load(listCVHomeModel.get(position).getProfile_cv_post()).into(holder.profile_cv_post);
         holder.btn_view.setImageResource(listCVHomeModel.get(position).getBtn_view());
         holder.name_cv_post.setText(listCVHomeModel.get(position).getName_cv_post());
         holder.last_update_cv_post.setText(listCVHomeModel.get(position).getLast_update_cv_post());
@@ -49,7 +52,9 @@ public class ViewTypeCvHomeAdapter extends RecyclerView.Adapter<ViewTypeCvHomeHo
         holder.btn_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SeekerProfile.class);
+                Intent intent = new Intent(context, ViewDetailCvPost.class);
+                intent.putExtra("name",listCVHomeModel.get(position).getName_cv_post());
+                intent.putExtra("email",listCVHomeModel.get(position).getEmail_cv_home());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

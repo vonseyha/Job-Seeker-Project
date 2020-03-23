@@ -38,7 +38,8 @@ public class activity_viewcvhome extends AppCompatActivity {
     ViewTypeCvHomeAdapter adapter_type_cv_home;
     ArrayList<ViewTypeCvHomeModel> listCvHomeModel;
 
-    ImageView btn_back , PostCv ;
+    ImageView btn_back ;
+    Button PostCv ;
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +67,13 @@ public class activity_viewcvhome extends AppCompatActivity {
             }
         });
 
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-//                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
-//                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
+                        overridePendingTransition(0,0);
                         return  true;
 
                     case R.id.nav_job:
@@ -121,9 +121,8 @@ public class activity_viewcvhome extends AppCompatActivity {
         };
 
         for (int i = 0 ; i < 8 ; i++ ){
-
             ViewTypeCvHomeModel model = new ViewTypeCvHomeModel();
-            model.setProfile_cv_post( Image[i]);
+            model.setProfile_cv_post(Image[i]);
             model.setBtn_view(R.drawable.rectanglee);
             model.setName_cv_post(Info[0][i]);
             model.setLast_update_cv_post(Info[1][i]);
@@ -145,7 +144,7 @@ public class activity_viewcvhome extends AppCompatActivity {
     protected void onPostResume() {
         super.onPostResume();
         mRequestQueue = Volley.newRequestQueue(getApplicationContext());
-        jsonRequest("http://192.168.200.64:8000/api/postcv/read");
+        jsonRequest("http://192.168.200.62:8000/api/postcv/read");
     }
 
     private void jsonRequest(String url)
@@ -155,12 +154,22 @@ public class activity_viewcvhome extends AppCompatActivity {
             public void onResponse(JSONArray response) {
                 try
                 {
+                    int[] Image = {
+                            R.drawable.circle_profileb,
+                            R.drawable.circle_profilea,
+                            R.drawable.circle_profilec,
+                            R.drawable.circle_profiled,
+                            R.drawable.circle_profilee,
+                            R.drawable.circle_profilef,
+                            R.drawable.circle_profileg,
+                            R.drawable.circle_profilei,
+                    };
                     listCvHomeModel = new ArrayList<>();
                     for(int i=0 ; i<response.length(); i++){
                         JSONObject jsonObject = response.getJSONObject(i);
                         ViewTypeCvHomeModel model = new ViewTypeCvHomeModel();
                         //int a = jsonObject.getInt("Icon");
-                        model.setProfile_cv_post(R.drawable.circle_profilec);
+                        model.setProfile_cv_post(Image[i]);
                         model.setName_cv_post(jsonObject.getString("Fullname"));
                         model.setLast_update_cv_post(jsonObject.getString("Lastdate"));
                         model.setFunction_cv_home(jsonObject.getString("Interest"));

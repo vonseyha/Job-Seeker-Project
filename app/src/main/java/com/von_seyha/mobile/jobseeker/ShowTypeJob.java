@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.von_seyha.mobile.jobseeker.adapter.ViewTypeHomeAdapter;
@@ -22,47 +24,22 @@ public class ShowTypeJob extends AppCompatActivity {
     ArrayList<ViewTypeHomeModel> list_type_home_Model;
 
     BottomNavigationView bottomNavigationView;
+    ImageView btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_type_job);
-        recyclerView_type_home = findViewById(R.id.recyclerview_show_typejob);
-        bottomNavigationView = findViewById(R.id.tab_button);
+        recyclerView_type_home = findViewById(R.id.recyclerview_type_home);
+        btn_back = findViewById(R.id.btn_back_show_type_post);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()){
-                    case R.id.nav_profile:
-//                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
-//                        overridePendingTransition(0,0);
-                        return  true;
-
-                    case R.id.nav_job:
-                        Intent typeJob = new Intent(getApplicationContext(),activity_viewtype_job.class);
-                        startActivity(typeJob);
-                        overridePendingTransition(0,0);
-                        return  true;
-
-                    case R.id.nav_home:
-                        Intent typeCv = new Intent(getApplicationContext(),grid_viewitemhome.class);
-                        startActivity(typeCv);
-                        overridePendingTransition(0,0);
-                        return  true;
-
-                    case R.id.nav_cv:
-                        Intent intent3 = new Intent(getApplicationContext(),activity_viewtype_cv.class);
-                        startActivity(intent3);
-                        overridePendingTransition(0,0);
-                        return  true;
-                }
-
-                return false;
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), activity_viewtype_job.class);
+                startActivity(intent);
             }
         });
-
 
         list_type_home_Model = new ArrayList<>();
 

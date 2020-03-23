@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ViewDetailCvPost">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/row_back_detail_cv"
+            android:layout_width="20dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon_back"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"/>
+        <TextView
+            android:id="@+id/tv_more_infor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textAllCaps="true"
+            android:layout_marginLeft="115dp"
+            android:text="My CV"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            />
+        <Button
+            android:id="@+id/setting_img_detail_cv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="90dp"
+            android:background="@drawable/ic_more"/>
+    </LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+
+    <TextView
+        android:id="@+id/name_seeker_profile"
+        android:text="Von Seyha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#ffff"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/email_seeker_profile"
+        android:text="Von Seyha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#ffff"
+        android:textStyle="bold"/>
+
+</LinearLayout>

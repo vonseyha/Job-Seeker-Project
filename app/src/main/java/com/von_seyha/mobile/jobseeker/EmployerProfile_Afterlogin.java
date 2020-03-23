@@ -57,7 +57,7 @@ public class EmployerProfile_Afterlogin extends AppCompatActivity {
 
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-                        startActivity(new Intent(getApplicationContext(),activity_viewtype_job.class));
+                        startActivity(new Intent(getApplicationContext(),EmployerProfile_Afterlogin.class));
                         overridePendingTransition(0,0);
                         return  true;
 

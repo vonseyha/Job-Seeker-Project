@@ -1,15 +1,18 @@
 package com.von_seyha.mobile.jobseeker.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.von_seyha.mobile.jobseeker.R;
+import com.von_seyha.mobile.jobseeker.ShowTypeJob;
 import com.von_seyha.mobile.jobseeker.holder.ViewTypeJobHolder;
 import com.von_seyha.mobile.jobseeker.model.ViewTypeJobModel;
 
@@ -36,6 +39,15 @@ public class ViewTypeJobAdapter extends RecyclerView.Adapter<ViewTypeJobHolder> 
     public void onBindViewHolder(@NonNull ViewTypeJobHolder holder, int position) {
         holder.imageView.setImageResource(listType_JOB_Model.get(position).getImage_job());
         holder.textView.setText(listType_JOB_Model.get(position).getTitle_job());
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ShowTypeJob.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
