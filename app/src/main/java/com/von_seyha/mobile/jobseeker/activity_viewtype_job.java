@@ -47,7 +47,7 @@ public class activity_viewtype_job extends AppCompatActivity {
                         return  true;
 
                     case R.id.nav_home:
-                        Intent typeCv = new Intent(getApplicationContext(),grid_viewitemhome.class);
+                        Intent typeCv = new Intent(getApplicationContext(),GridViewHomeUser.class);
                         startActivity(typeCv);
                         overridePendingTransition(0,0);
                         return  true;

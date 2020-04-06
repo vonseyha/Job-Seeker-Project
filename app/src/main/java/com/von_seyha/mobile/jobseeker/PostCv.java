@@ -42,13 +42,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static android.widget.Toast.LENGTH_LONG;
 
 public class PostCv extends AppCompatActivity implements View.OnClickListener {
 
     Button btn_back;
     TextView clk_post;
-    ImageView profile_image_post_cv;
+    CircleImageView profile_image_post_cv;
     TextView uploade_photo_post_cv;
     TextInputLayout  name_post_cv,
                     email_post_cv,
@@ -188,7 +190,7 @@ public class PostCv extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void uploadImge(){
-        String url = "http://192.168.200.62:8000/api/postjob/create";
+        String url = "http://192.168.43.210:8000/api/postjob/create";
         StringRequest request = new StringRequest(Request.Method.POST,url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response) {
@@ -232,7 +234,7 @@ public class PostCv extends AppCompatActivity implements View.OnClickListener {
                 data.put("Language",Language);
                 data.put("Lastdate",lastdate);
                 //data.put("Demo_File",getBitmapFromUri(uri));
-                data.put("Icon",imageToString(bitmap));
+               // data.put("Icon",imageToString(bitmap));
                 Log.e("OOOOOOOOOO",data.toString());
                 return super.getParams();
             }

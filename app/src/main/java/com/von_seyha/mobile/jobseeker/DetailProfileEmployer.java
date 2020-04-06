@@ -1,11 +1,9 @@
 package com.von_seyha.mobile.jobseeker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,18 +11,6 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DetailProfileEmployer extends AppCompatActivity {
-
-//    btn_back_detail_profile_employer
-//            //profile_image_detail_profile_employer
-//    name_detail_profile_employer
-//            address_detail_profile_employer
-//            des_email
-//    des_com_location
-//            des_com_about_company
-//    des_edit_profile
-//    logout(icon)
-//    des_logout
-
 
     Button btn_back;
     BottomNavigationView bottomNavigationView;

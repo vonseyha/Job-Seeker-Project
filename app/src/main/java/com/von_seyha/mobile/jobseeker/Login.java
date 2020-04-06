@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.von_seyha.mobile.jobseeker.db.DatabaseHelper;
@@ -82,15 +83,15 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(getApplication(), "Password Empty",Toast.LENGTH_LONG).show();
                 }
                 else if (databaseHelper.isLoginValid(Email,Password)){
-                    String fullname = FULLNAME2.getText().toString();
-                    String email3 = EMAIL2.getText().toString();
-                    String address3 = ADDRESS2.getText().toString();
-                    Toast.makeText(getApplicationContext(),"Login Successful", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(),grid_viewitemhome.class);
-                    intent.putExtra("username_l",fullname);
-                    intent.putExtra("email_l",email3);
-                    intent.putExtra("address_l",address3 );
-                    startActivity(intent);
+//                    String fullname = FULLNAME2.getText().toString();
+//                    String email3 = EMAIL2.getText().toString();
+//                    String address3 = ADDRESS2.getText().toString();
+//                    Toast.makeText(getApplicationContext(),"Login Successful", Toast.LENGTH_LONG).show();
+//                    Intent intent = new Intent(getApplicationContext(),grid_viewitemhome.class);
+//                    intent.putExtra("username_l",fullname);
+//                    intent.putExtra("email_l",email3);
+//                    intent.putExtra("address_l",address3 );
+//                    startActivity(intent);
                     email1.setText("");
                     password1.setText("");
                 }
@@ -103,7 +104,7 @@ public class Login extends AppCompatActivity {
     }
 
     public String parseJSON(final String email , final String password){
-        String url = "http://192.168.200.62:8000/api/user/login/"+email+"/"+password;
+        String url = "http://192.168.43.210:8000/api/user/login/"+email+"/"+password;
         StringRequest request = new StringRequest(Request.Method.GET,url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response) {
@@ -112,7 +113,11 @@ public class Login extends AppCompatActivity {
                     String success = jsonObject.getString("success");
                     if(success.equals("1")){
                         Intent intent = new Intent(getApplicationContext(),grid_viewitemhome.class);
+                        String EMAIL = email1.getText().toString();
+                        Log.e("GetEmailfromDB " , EMAIL);
+                        readJSON("leak@gmail.com");
                         startActivity(intent);
+//                        Toast.makeText(getApplicationContext(),"Successful", Toast.LENGTH_LONG).show();
                     }
                     else {
                         Toast.makeText(getApplicationContext(),"Invalide Email and Password", LENGTH_LONG).show();
@@ -133,9 +138,8 @@ public class Login extends AppCompatActivity {
                 map.put("password",password1.getText().toString());
                 return super.getParams();
             }
+
         };
-        String EMAIL_LO = email1.getText().toString();
-        readJSON(EMAIL_LO);
 
         RequestQueue requestQueue =Volley.newRequestQueue(this);
         requestQueue.add(request);
@@ -143,14 +147,15 @@ public class Login extends AppCompatActivity {
     }
 
     public String readJSON(final String email){
-        String url = "http://192.168.200.62:8000 n/api/user/show/"+email;
+        String url = "http://192.168.200.57:8000/api/user/showemail/"+email;
         StringRequest request = new StringRequest(Request.Method.GET,url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response) {
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-                    String success = jsonObject.getString("success");
-                    if(success.equals("1")){
+                        FULLNAME2.setText(jsonObject.getString("username"));
+                        EMAIL2.setText(jsonObject.getString("email"));
+                        ADDRESS2.setText(jsonObject.getString("address"));
                         String fullname = FULLNAME2.getText().toString();
                         String email3 = EMAIL2.getText().toString();
                         String address3 = ADDRESS2.getText().toString();
@@ -160,11 +165,9 @@ public class Login extends AppCompatActivity {
                         intent.putExtra("email_l",email3);
                         intent.putExtra("address_l",address3 );
                         startActivity(intent);
+
                         Toast.makeText(getApplicationContext(),"Success", LENGTH_LONG).show();
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(),"Invalide Email and Password", LENGTH_LONG).show();
-                    }
+
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -172,16 +175,10 @@ public class Login extends AppCompatActivity {
         },new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("ERROR",error.getMessage());
             }
         }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> map = new HashMap<>();
-                map.put("username",FULLNAME2.getText().toString());
-                map.put("email",EMAIL2.getText().toString());
-                map.put("address",ADDRESS2.getText().toString());
-                return super.getParams();
-            }
+
         };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);

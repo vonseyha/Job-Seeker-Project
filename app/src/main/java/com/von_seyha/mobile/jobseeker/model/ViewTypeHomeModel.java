@@ -1,7 +1,7 @@
 package com.von_seyha.mobile.jobseeker.model;
 
 public class ViewTypeHomeModel {
-    int image_background ;
+    String image_background ;
     int image_button_show;
     String Title , Term , Email , Password , show_more;
 
@@ -45,11 +45,11 @@ public class ViewTypeHomeModel {
     }
 
     //Old Before Add more
-    public int getImage_background() {
+    public String getImage_background() {
         return image_background;
     }
 
-    public void setImage_background(int image_background) {
+    public void setImage_background(String image_background) {
         this.image_background = image_background;
     }
 

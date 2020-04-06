@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         btn_goApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PostCv.class);
+                Intent intent = new Intent(getApplicationContext(),GridViewHomeUser.class);
                 startActivity(intent);
             }
         });

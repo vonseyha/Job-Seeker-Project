@@ -135,7 +135,7 @@ public class GridViewCvHomeUser extends AppCompatActivity {
     protected void onPostResume() {
         super.onPostResume();
         mRequestQueue = Volley.newRequestQueue(getApplicationContext());
-        jsonRequest("http://192.168.200.62:8000/api/postcv/read");
+        jsonRequest("http://192.168.43.210:8000/api/postcv/read");
     }
 
     private void jsonRequest(String url)

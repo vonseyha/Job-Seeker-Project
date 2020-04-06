@@ -104,7 +104,7 @@ public class EmployerProfile_Afterlogin extends AppCompatActivity {
 
         for (int i = 0 ; i < 5 ; i++ ){
             ViewTypeHomeModel model = new ViewTypeHomeModel();
-            model.setImage_background(Image[i]);
+            //model.setImage_background();
             model.setImage_button_show(R.drawable.rectanglee);
             model.setTitle(Info[0][i]);
             model.setTerm(Info[1][i]);

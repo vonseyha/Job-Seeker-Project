@@ -1,13 +1,10 @@
 package com.von_seyha.mobile.jobseeker;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +14,6 @@ public class DetailJobPost extends AppCompatActivity {
 
     ImageView btn_back,btn_Setting , image_detail_Job;
     BottomNavigationView bottomNavigationView;
-
     TextView Job_Title_detail,input_term , input_last_date ,input_req , input_exp,input_email,input_tel , Address;
 
     @Override
@@ -35,7 +31,6 @@ public class DetailJobPost extends AppCompatActivity {
                 input_email = findViewById(R.id.input_exp);
                 input_tel = findViewById(R.id.input_tel);
                 Address = findViewById(R.id.input_addresss);
-
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");

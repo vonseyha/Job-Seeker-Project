@@ -36,8 +36,8 @@ public class ProfileEditAfterLofginadapter extends RecyclerView.Adapter<ViewType
 
     @Override
     public void onBindViewHolder(@NonNull ViewTypeHomeHolder holder, int position) {
-        //Picasso.get().load(list_Home_Model.get(position).getImage_background()).into(holder.image_background);
-        holder.image_background.setImageResource(list_Home_Model.get(position).getImage_background());
+        Picasso.get().load(list_Home_Model.get(position).getImage_background()).into(holder.image_background);
+        //holder.image_background.setImageResource(list_Home_Model.get(position).getImage_background());
         holder.image_button_show.setImageResource(list_Home_Model.get(position).getImage_button_show());
         holder.Title.setText(list_Home_Model.get(position).getTitle());
         holder.Term.setText(list_Home_Model.get(position).getTerm());

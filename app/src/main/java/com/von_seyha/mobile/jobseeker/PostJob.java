@@ -44,6 +44,8 @@ import java.util.HashMap;
 import java.util.LongSummaryStatistics;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static android.widget.Toast.LENGTH_LONG;
 import static com.bumptech.glide.load.model.stream.HttpGlideUrlLoader.TIMEOUT;
 
@@ -67,6 +69,7 @@ public class PostJob extends AppCompatActivity implements View.OnClickListener {
     private final int IMG_REQUEST = 1;
     RequestQueue mRequestQueue;
     private Bitmap bitmap;
+    String getId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +96,7 @@ public class PostJob extends AppCompatActivity implements View.OnClickListener {
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(),grid_viewitemhome.class);
                 startActivity(intent);
             }
@@ -107,15 +110,15 @@ public class PostJob extends AppCompatActivity implements View.OnClickListener {
                 selectImage();
                 break;
             case R.id.btn_post_job:
-                String Companyname = companyname_post_job.getEditText().getText().toString();
-                String Term = term_post_job.getEditText().getText().toString();
-                String Title = title_post_job.getEditText().getText().toString();
-                String Requirement = requirement_post_job.getEditText().getText().toString();
-                String Experience = experience_post_job.getEditText().getText().toString();
-                String Email = email_post_job.getEditText().getText().toString();
-                String Address = address_post_job.getEditText().getText().toString();
-                String Lastdate = lastdate_post_job.getEditText().getText().toString();
-                String PhoneNumber = phone_number_post_job.getEditText().getText().toString();
+                String Companyname = companyname_post_job.getEditText().getText().toString().trim();
+                String Term = term_post_job.getEditText().getText().toString().trim();
+                String Title = title_post_job.getEditText().getText().toString().trim();
+                String Requirement = requirement_post_job.getEditText().getText().toString().trim();
+                String Experience = experience_post_job.getEditText().getText().toString().trim();
+                String Email = email_post_job.getEditText().getText().toString().trim();
+                String Address = address_post_job.getEditText().getText().toString().trim();
+                String Lastdate = lastdate_post_job.getEditText().getText().toString().trim();
+                String PhoneNumber = phone_number_post_job.getEditText().getText().toString().trim();
                 if(TextUtils.isEmpty(Companyname)){
                     Toast.makeText(getApplicationContext(),"Name Company is Empty", LENGTH_LONG).show();
                 }
@@ -143,11 +146,23 @@ public class PostJob extends AppCompatActivity implements View.OnClickListener {
                 else if(TextUtils.isEmpty(PhoneNumber)){
                     Toast.makeText(getApplicationContext(),"PhoneNumber is Empty", LENGTH_LONG).show();
                 }
-                else {
-                    uploadImge();
+                    mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+                    HashMap data = new HashMap();
+                    data.put("CompanyName",Companyname);
+                    data.put("Term",Term);
+                    data.put("Title",Title);
+                    data.put("Requirement",Requirement);
+                    data.put("Experience",Experience);
+                    data.put("Email",Email);
+                    data.put("Address",Address);
+                    data.put("Lastdate",Lastdate);
+                    data.put("Phone",PhoneNumber);
+                    //.put("Icon","ahsfdj");
+                    data.put("Icon",getStringImage(bitmap));
+                    Log.e("OOOOOOOOOO",data.toString());
+                    String url = "http://192.168.43.210:8000/api/postjob/create";
+                    uploadImge(url,data);
                     Toast.makeText(getApplicationContext(),"Post Success", LENGTH_LONG).show();
-                }
-
                 break;
         }
     }
@@ -156,14 +171,36 @@ public class PostJob extends AppCompatActivity implements View.OnClickListener {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent,IMG_REQUEST);
+        startActivityForResult(intent.createChooser(intent,"Select Picture"),IMG_REQUEST);
+    }
+
+    public void uploadImge(String url, HashMap data){
+        final RequestQueue requstQueue = Volley.newRequestQueue(getApplicationContext());
+        JsonObjectRequest jsonobj = new JsonObjectRequest(Request.Method.POST, url,new JSONObject(data),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("SUCC_onResponse",response.toString());
+                        // do your business logic here.....
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("ERROR_onErrorResponse",error.toString());
+                    }
+                }
+        ){
+
+        };
+        requstQueue.add(jsonobj);
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null){
+        if(requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
             Uri path = data.getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),path);
@@ -173,70 +210,15 @@ public class PostJob extends AppCompatActivity implements View.OnClickListener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
     }
 
-    private void uploadImge(){
-        String url = "http://192.168.200.62:8000/api/postjob/create";
-        StringRequest request = new StringRequest(Request.Method.POST,url, new Response.Listener<String>(){
-            @Override
-            public void onResponse(String response) {
-                try{
-                    JSONObject jsonObject = new JSONObject(response);
-                    String success = jsonObject.getString("success");
-                    if(success.equals("1")){
-                        Toast.makeText(getApplicationContext(),"Success", LENGTH_LONG).show();
-                        profile_post_job.setImageResource(0);
-                        profile_post_job.setVisibility(View.GONE);
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(),"Not Success", LENGTH_LONG).show();
-                    }
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        },new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> data = new HashMap<>();
-                String Companyname = companyname_post_job.getEditText().getText().toString();
-                String Term = term_post_job.getEditText().getText().toString();
-                String Title = title_post_job.getEditText().getText().toString();
-                String Requirement = requirement_post_job.getEditText().getText().toString();
-                String Experience = experience_post_job.getEditText().getText().toString();
-                String Email = email_post_job.getEditText().getText().toString();
-                String Address = address_post_job.getEditText().getText().toString();
-                String Lastdate = lastdate_post_job.getEditText().getText().toString();
-                String PhoneNumber = phone_number_post_job.getEditText().getText().toString();
-
-                data.put("CompanyName",Companyname);
-                data.put("Term",Term);
-                data.put("Title",Title);
-                data.put("Requirement",Requirement);
-                data.put("Experience",Experience);
-                data.put("Email",Email);
-                data.put("Address",Address);
-                data.put("Lastdate",Lastdate);
-                data.put("Phone",PhoneNumber);
-                data.put("Icon",imageToString(bitmap));
-                Log.e("OOOOOOOOOO",data.toString());
-                return super.getParams();
-            }
-        };
-
-        RequestQueue requestQueue =Volley.newRequestQueue(this);
-        requestQueue.add(request);
-    }
-    private String imageToString(Bitmap bitmap){
+    public String getStringImage(Bitmap bitmap){
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
         byte[] imageByte = byteArrayOutputStream.toByteArray();
-        return Base64.encodeToString(imageByte,Base64.DEFAULT);
+        String ecodeImage = Base64.encodeToString(imageByte,Base64.DEFAULT);
+        return ecodeImage;
     }
-
 }

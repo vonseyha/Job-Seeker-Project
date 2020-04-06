@@ -83,7 +83,7 @@ public class grid_viewitemhome extends AppCompatActivity {
 
         for (int i = 0 ; i < 5 ; i++ ){
             ViewTypeHomeModel model = new ViewTypeHomeModel();
-            model.setImage_background(Image[i]);
+            //model.setImage_background("");
             model.setImage_button_show(R.drawable.rectanglee);
             model.setTitle(Info[0][i]);
             model.setTerm(Info[1][i]);
@@ -166,7 +166,7 @@ public class grid_viewitemhome extends AppCompatActivity {
     protected void onPostResume() {
         super.onPostResume();
         mRequestQueue = Volley.newRequestQueue(getApplicationContext());
-        jsonRequest("http://192.168.200.62:8000/api/postjob/read");
+        jsonRequest("http://192.168.43.210:8000/api/postjob/read");
     }
     private void jsonRequest(String url)
     {
@@ -192,7 +192,7 @@ public class grid_viewitemhome extends AppCompatActivity {
                        JSONObject jsonObject = response.getJSONObject(i);
                         ViewTypeHomeModel model = new ViewTypeHomeModel();
                         //int a = jsonObject.getInt("Icon");
-                        model.setImage_background(Image[i]);
+                        model.setImage_background(jsonObject.getString("Icon"));
                         model.setTitle(jsonObject.getString("Title"));
                         model.setTerm(jsonObject.getString("Term"));
                         model.setEmail(jsonObject.getString("Email"));

@@ -122,7 +122,7 @@ public class Signup extends AppCompatActivity  {
                 data.put("password",Password);
                 data.put("address",Address);
                 data.put("gender",Gender);
-                String url="http://192.168.200.62:8000/api/user/create";
+                String url="http://192.168.43.210:8000/api/user/create";
                 postData(url,data);
             }
         });
